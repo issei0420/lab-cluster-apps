@@ -1,0 +1,13 @@
+---
+# Resource Quota for cpu and memory usage
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: tenant-quota
+  namespace: tenant-namespace
+spec:
+  hard:
+    requests.cpu: "8"
+    requests.memory: "16Gi"
+    limits.cpu: "8"
+    limits.memory: "16Gi"

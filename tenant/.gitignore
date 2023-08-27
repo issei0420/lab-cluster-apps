@@ -1,0 +1,5 @@
+# Ignore the destination directory used by makefile.
+/generated/
+# CA data
+csr-template.yaml
+lab-ca.crt
