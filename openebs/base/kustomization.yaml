@@ -6,3 +6,4 @@ namespace: openebs
 
 resources:
   - manifests.yaml
+  - namespace.yaml
