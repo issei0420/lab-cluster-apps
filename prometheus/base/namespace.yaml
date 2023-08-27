@@ -1,6 +1,6 @@
 ---
-# Namespace for openebs
+# Namespace for prometheus/monitoring
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: openebs
+  name: monitoring
