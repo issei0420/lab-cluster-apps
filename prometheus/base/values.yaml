@@ -1,0 +1,29 @@
+# Configuration for kube-prometheus-stack helm chart
+prometheus:
+  prometheusSpec:
+    # configure persistent storage
+    storageSpec: 
+      volumeClaimTemplate:
+       spec:
+         storageClassName: openebs-hostpath 
+         accessModes: ["ReadWriteOnce"]
+         resources:
+           requests:
+             storage: 20Gi
+    podMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelectorNilUsesHelmValues: false
+
+## Configuration for Grafana
+## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
+##
+grafana:
+  enabled: false
+
+## Configuration for alertmanager
+## ref: https://prometheus.io/docs/alerting/alertmanager/
+##
+alertmanager:
+
+  ## Deploy alertmanager
+  ##
+  enabled: false
