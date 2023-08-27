@@ -4,4 +4,7 @@ kind: Kustomization
 
 resources:
 - openebs.yaml
+- prometheus-crd.yaml
+- prometheus.yaml
+- grafana.yaml
 - saiki-tenant.yaml
