@@ -16,8 +16,8 @@ configMapGenerator:
 - name: grafana-dashboards
   behavior: create
   files:
-  - dashboards/node-exporter-full.json
-  # - dashboards/pod-namespace.json
+  # - dashboards/node-exporter-full.json
+  - dashboards/pod-namespace.json
 
 patches:
 - path: datasources-configmap-patch.yaml
