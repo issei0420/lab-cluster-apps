@@ -19,8 +19,8 @@ persistence:
 admin:
   ## Name of the secret. Can be templated.
   existingSecret: grafana-admin-secret
-  userKey: user
-  passwordKey: password
+  userKey: admin-user
+  passwordKey: admin-password
 
 ## Sidecars that collect the configmaps with specified label and stores the included files them into the respective folders
 ## Requires at least Grafana 5 to work and can't be used together with parameters dashboardProviders, datasources and dashboards
