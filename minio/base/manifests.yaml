@@ -17,8 +17,8 @@ metadata:
     heritage: Helm
 type: Opaque
 data:
-  rootUser: "MFdEd3JkdkF4M0sxeHpGRTU3Qm0="
-  rootPassword: "SGxFS2JrTldPWVRLbDJtc1FlbkdaMmtDZW1TYm5qTlZ4dlRoN3lXSw=="
+  rootUser: "Rklqb0JpOWo3S05GdXdYQXpnT3Y="
+  rootPassword: "R3Byc1lVMm9uN2EyR3p6Nm5vZk5XVmxLR0JGVDJoZnVqVm0wZldEVw=="
 ---
 # Source: minio/templates/configmap.yaml
 apiVersion: v1
@@ -499,7 +499,7 @@ spec:
     type: RollingUpdate
   podManagementPolicy: "Parallel"
   serviceName: minio-svc
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: minio
@@ -511,7 +511,7 @@ spec:
         app: minio
         release: minio
       annotations:
-        checksum/secrets: 639da16355b2c7eaab26b2fed41860a12bf1318f49c0e17b9f94349ddb4df090
+        checksum/secrets: abd58d5d45077f6f5013755305da270eb124484aab74e5d529b0ef591fda4958
         checksum/config: 86f09ed96a030e7add4ebf15ffc8db925b8cc76c838b53fb35ac86d1ecbe1412
     spec:
       securityContext:
@@ -527,7 +527,7 @@ spec:
           command: [
             "/bin/sh",
             "-ce",
-            "/usr/bin/docker-entrypoint.sh minio server  http://minio-{0...0}.minio-svc.minio.svc.cluster.local/export -S /etc/minio/certs/ --address :9000 --console-address :9001"
+            "/usr/bin/docker-entrypoint.sh minio server  http://minio-{0...1}.minio-svc.minio.svc.cluster.local/export -S /etc/minio/certs/ --address :9000 --console-address :9001"
           ]
           volumeMounts:
             - name: export
@@ -565,7 +565,7 @@ spec:
         storageClassName: openebs-hostpath
         resources:
           requests:
-            storage: 20Gi
+            storage: 10Gi
 ---
 # Source: minio/templates/servicemonitor.yaml
 apiVersion: monitoring.coreos.com/v1

@@ -21,7 +21,7 @@ rootPassword: ""
 # existingSecret: "minio"
 
 # Number of MinIO containers running
-replicas: 1
+replicas: 2
 
 ## Enable persistence using Persistent Volume Claims
 ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
@@ -39,7 +39,7 @@ persistence:
   ## If the PV uses a different storage class, specify that here.
   storageClass: "openebs-hostpath"
   accessMode: ReadWriteOnce
-  size: 20Gi
+  size: 10Gi
 
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
