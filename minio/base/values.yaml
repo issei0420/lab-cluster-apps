@@ -18,7 +18,7 @@ rootPassword: ""
 ## All mentioned variables will be ignored in values file.
 ## .data.rootUser and .data.rootPassword are mandatory,
 ## others depend on enabled status of corresponding sections.
-existingSecret: "minio"
+# existingSecret: "minio"
 
 # Number of MinIO containers running
 replicas: 1

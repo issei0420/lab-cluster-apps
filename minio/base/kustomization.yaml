@@ -6,5 +6,5 @@ namespace: minio
 
 resources:
   - manifests.yaml
-  - sealed-admin-secret.yaml
+  # - sealed-admin-secret.yaml
   - namespace.yaml

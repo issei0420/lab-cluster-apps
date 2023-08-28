@@ -5,6 +5,21 @@ kind: ServiceAccount
 metadata:
   name: "minio-sa"
 ---
+# Source: minio/templates/secrets.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: minio
+  labels:
+    app: minio
+    chart: minio-5.0.13
+    release: minio
+    heritage: Helm
+type: Opaque
+data:
+  rootUser: "MFdEd3JkdkF4M0sxeHpGRTU3Qm0="
+  rootPassword: "SGxFS2JrTldPWVRLbDJtc1FlbkdaMmtDZW1TYm5qTlZ4dlRoN3lXSw=="
+---
 # Source: minio/templates/configmap.yaml
 apiVersion: v1
 kind: ConfigMap
@@ -496,7 +511,7 @@ spec:
         app: minio
         release: minio
       annotations:
-        checksum/secrets: 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
+        checksum/secrets: 639da16355b2c7eaab26b2fed41860a12bf1318f49c0e17b9f94349ddb4df090
         checksum/config: 86f09ed96a030e7add4ebf15ffc8db925b8cc76c838b53fb35ac86d1ecbe1412
     spec:
       securityContext:
