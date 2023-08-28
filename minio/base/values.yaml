@@ -21,7 +21,7 @@ rootPassword: ""
 existingSecret: "minio"
 
 # Number of MinIO containers running
-replicas: 3
+replicas: 1
 
 ## Enable persistence using Persistent Volume Claims
 ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
