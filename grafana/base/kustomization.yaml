@@ -6,7 +6,6 @@ namespace: monitoring
 
 resources:
 - manifests.yaml
-- sealed-admin-secret.yaml
 
 configMapGenerator:
 - name: grafana-datasources
