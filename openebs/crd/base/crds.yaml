@@ -1,0 +1,319 @@
+---
+# Source: crds/blockdevice.yaml
+
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.5.0
+  creationTimestamp: null
+  name: blockdevices.openebs.io
+spec:
+  group: openebs.io
+  names:
+    kind: BlockDevice
+    listKind: BlockDeviceList
+    plural: blockdevices
+    shortNames:
+      - bd
+    singular: blockdevice
+  scope: Namespaced
+  versions:
+    - additionalPrinterColumns:
+        - jsonPath: .spec.nodeAttributes.nodeName
+          name: NodeName
+          type: string
+        - jsonPath: .spec.path
+          name: Path
+          priority: 1
+          type: string
+        - jsonPath: .spec.filesystem.fsType
+          name: FSType
+          priority: 1
+          type: string
+        - jsonPath: .spec.capacity.storage
+          name: Size
+          type: string
+        - jsonPath: .status.claimState
+          name: ClaimState
+          type: string
+        - jsonPath: .status.state
+          name: Status
+          type: string
+        - jsonPath: .metadata.creationTimestamp
+          name: Age
+          type: date
+      name: v1alpha1
+      schema:
+        openAPIV3Schema:
+          properties:
+            apiVersion:
+              type: string
+            kind:
+              type: string
+            metadata:
+              type: object
+            spec:
+              properties:
+                aggregateDevice:
+                  type: string
+                capacity:
+                  properties:
+                    logicalSectorSize:
+                      format: int32
+                      type: integer
+                    physicalSectorSize:
+                      format: int32
+                      type: integer
+                    storage:
+                      format: int64
+                      type: integer
+                  required:
+                    - storage
+                  type: object
+                claimRef:
+                  properties:
+                    apiVersion:
+                      type: string
+                    fieldPath:
+                      type: string
+                    kind:
+                      type: string
+                    name:
+                      type: string
+                    namespace:
+                      type: string
+                    resourceVersion:
+                      type: string
+                    uid:
+                      type: string
+                  type: object
+                details:
+                  properties:
+                    compliance:
+                      type: string
+                    deviceType:
+                      enum:
+                        - disk
+                        - partition
+                        - sparse
+                        - loop
+                        - lvm
+                        - crypt
+                        - dm
+                        - mpath
+                      type: string
+                    driveType:
+                      enum:
+                        - HDD
+                        - SSD
+                        - Unknown
+                        - ""
+                      type: string
+                    firmwareRevision:
+                      type: string
+                    hardwareSectorSize:
+                      format: int32
+                      type: integer
+                    logicalBlockSize:
+                      format: int32
+                      type: integer
+                    model:
+                      type: string
+                    physicalBlockSize:
+                      format: int32
+                      type: integer
+                    serial:
+                      type: string
+                    vendor:
+                      type: string
+                  type: object
+                devlinks:
+                  items:
+                    properties:
+                      kind:
+                        enum:
+                          - by-id
+                          - by-path
+                        type: string
+                      links:
+                        items:
+                          type: string
+                        type: array
+                    type: object
+                  type: array
+                filesystem:
+                  properties:
+                    fsType:
+                      type: string
+                    mountPoint:
+                      type: string
+                  type: object
+                nodeAttributes:
+                  properties:
+                    nodeName:
+                      type: string
+                  type: object
+                parentDevice:
+                  type: string
+                partitioned:
+                  enum:
+                    - "Yes"
+                    - "No"
+                  type: string
+                path:
+                  type: string
+              required:
+                - capacity
+                - devlinks
+                - nodeAttributes
+                - path
+              type: object
+            status:
+              properties:
+                claimState:
+                  enum:
+                    - Claimed
+                    - Unclaimed
+                    - Released
+                  type: string
+                state:
+                  enum:
+                    - Active
+                    - Inactive
+                    - Unknown
+                  type: string
+              required:
+                - claimState
+                - state
+              type: object
+          type: object
+      served: true
+      storage: true
+      subresources: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []
+# Source: crds/blockdeviceclaim.yaml
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.5.0
+  creationTimestamp: null
+  name: blockdeviceclaims.openebs.io
+spec:
+  group: openebs.io
+  names:
+    kind: BlockDeviceClaim
+    listKind: BlockDeviceClaimList
+    plural: blockdeviceclaims
+    shortNames:
+      - bdc
+    singular: blockdeviceclaim
+  scope: Namespaced
+  versions:
+    - additionalPrinterColumns:
+        - jsonPath: .spec.blockDeviceName
+          name: BlockDeviceName
+          type: string
+        - jsonPath: .status.phase
+          name: Phase
+          type: string
+        - jsonPath: .metadata.creationTimestamp
+          name: Age
+          type: date
+      name: v1alpha1
+      schema:
+        openAPIV3Schema:
+          properties:
+            apiVersion:
+              type: string
+            kind:
+              type: string
+            metadata:
+              type: object
+            spec:
+              properties:
+                blockDeviceName:
+                  type: string
+                blockDeviceNodeAttributes:
+                  properties:
+                    hostName:
+                      type: string
+                    nodeName:
+                      type: string
+                  type: object
+                deviceClaimDetails:
+                  properties:
+                    allowPartition:
+                      type: boolean
+                    blockVolumeMode:
+                      type: string
+                    formatType:
+                      type: string
+                  type: object
+                deviceType:
+                  nullable: true
+                  type: string
+                hostName:
+                  type: string
+                resources:
+                  properties:
+                    requests:
+                      additionalProperties:
+                        anyOf:
+                          - type: integer
+                          - type: string
+                        pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                        x-kubernetes-int-or-string: true
+                      type: object
+                  required:
+                    - requests
+                  type: object
+                selector:
+                  properties:
+                    matchExpressions:
+                      items:
+                        properties:
+                          key:
+                            type: string
+                          operator:
+                            type: string
+                          values:
+                            items:
+                              type: string
+                            type: array
+                        required:
+                          - key
+                          - operator
+                        type: object
+                      type: array
+                    matchLabels:
+                      additionalProperties:
+                        type: string
+                      type: object
+                  type: object
+              type: object
+            status:
+              properties:
+                phase:
+                  type: string
+              required:
+                - phase
+              type: object
+          type: object
+      served: true
+      storage: true
+      subresources: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []
