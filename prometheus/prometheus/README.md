@@ -8,5 +8,5 @@ to circumvent the issue posted [here](https://github.com/prometheus-community/he
 helm template prometheus -n monitoring --create-namespace prometheus-community/kube-prometheus-stack --include-crds \
     | yq e 'select(.kind == "CustomResourceDefinition")' \
     | yq e 'del(.. | .description?)' \
-    > prometheus-crd/base/crds.yaml
+    > base/crds.yaml
 ```
