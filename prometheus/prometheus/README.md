@@ -1,12 +1,14 @@
-# Prometheus CRD
-This Kustomize project installs CRDs for kube-prometheus-stack.
+# Prometheus
+This Kustomize project installs prometheus.
 
-## Generate CRD files
-The following command will retrieve the CRD from helm chart, extract only CRD manifests, then removes description fields
-to circumvent the issue posted [here](https://github.com/prometheus-community/helm-charts/issues/1500).
+The maninfests are generated using `helm template` and then applied via Kustomize.
+
+## Generate manifests
 ```sh
-helm template prometheus -n monitoring --create-namespace prometheus-community/kube-prometheus-stack --include-crds \
-    | yq e 'select(.kind == "CustomResourceDefinition")' \
-    | yq e 'del(.. | .description?)' \
-    > base/crds.yaml
+# make sure that prometheus-community helm repo is added.
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+
+# generate template
+helm template prometheus -n monitoring --create-namespace prometheus-community/kube-prometheus-stack --values base/values.yaml > base/manifests.yaml
 ```
