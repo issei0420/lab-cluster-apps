@@ -8,13 +8,13 @@ metadata:
   labels:
     name: prometheus
   annotations:
-    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   project: default
   source:
     repoURL: https://github.com/hanapedia/lab-cluster-apps
     targetRevision: HEAD
-    path: prometheus/base
+    path: prometheus/prometheus/base
   destination:
     server: "https://kubernetes.default.svc"
     namespace: monitoring

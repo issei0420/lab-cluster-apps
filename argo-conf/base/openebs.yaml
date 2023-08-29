@@ -14,7 +14,7 @@ metadata:
   labels:
     name: openebs
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   # The project the application belongs to.
   project: default
@@ -23,7 +23,7 @@ spec:
   source:
     repoURL: https://github.com/hanapedia/lab-cluster-apps
     targetRevision: HEAD
-    path: openebs/base
+    path: openebs/openebs/base
   destination:
     # cluster API URL
     server: https://kubernetes.default.svc
