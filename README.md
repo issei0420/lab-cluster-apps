@@ -15,5 +15,6 @@ List of the applications deployed are:
 |SealedSecret|sealed-secret/base|Kustomize|2|SealedSecret Installation|
 |MinIO|minio/base|Kustomize|3|MinIO Installation|
 |Prometheus|prometheus/base|Kustomize|4|Prometheus Installation|
+|Grafana Tempo|tempo/base|Kustomize|4|Grafana Tempo Installation|
 |Grafana|grafana/base|Kustomize|4|Grafana Installation|
 |saiki-tenant|tenant/overlays/saiki|Kustomize|5|Tenant used by Saiki san|

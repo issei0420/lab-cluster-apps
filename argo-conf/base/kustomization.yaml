@@ -10,5 +10,6 @@ resources:
 - sealed-secret.yaml
 - prometheus-crd.yaml
 - prometheus.yaml
+- tempo.yaml
 - grafana.yaml
 - saiki-tenant.yaml

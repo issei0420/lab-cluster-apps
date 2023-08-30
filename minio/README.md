@@ -10,5 +10,5 @@ helm repo add minio https://charts.min.io/
 helm repo update
 
 # generate template
-helm template minio --namespace minio --create-namespace minio/minio --values base/values.yaml > base/manifests.yaml
+helm template minio --namespace monitoring --create-namespace minio/minio --values base/values.yaml > base/manifests.yaml
 ```
