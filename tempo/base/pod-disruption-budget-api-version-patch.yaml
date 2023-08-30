@@ -1,0 +1,4 @@
+---
+- op: replace
+  path: /apiVersion
+  value: policy/v1

@@ -6,3 +6,11 @@ namespace: monitoring
 
 resources:
   - manifests.yaml
+
+patches:
+  - path: pod-disruption-budget-api-version-patch.yaml
+    target:
+      group: policy
+      version: v1beta1
+      kind: PodDisruptionBudget
+      name: tempo-ingester
