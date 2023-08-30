@@ -5,8 +5,8 @@ mode: distributed ## other supported values are "standalone"
 ## AccessKey and secretKey is generated when not set
 ## Distributed MinIO ref: https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-multi-node-multi-drive.html
 ##
-rootUser: ""
-rootPassword: ""
+# rootUser: ""
+# rootPassword: ""
 
 ## Use existing Secret that store following variables:
 ##

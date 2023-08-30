@@ -17,8 +17,8 @@ metadata:
     heritage: Helm
 type: Opaque
 data:
-  rootUser: "ZzBTTm1tMjRxRHJsbGJFR0hWQ3g="
-  rootPassword: "Q0NYUHdrZFdTMG9lYUlDMWRncFJNb05Sb2NxMGtNb0F6QTFLUXNRdw=="
+  rootUser: "TzZ3a0JjS0h3M2o1TGNpbVY5dGw="
+  rootPassword: "c1dQSGhZVHNYaXFWUEhXYlRaT0RsNXRaUVJEekplMzNLdFl3ak9Ocg=="
 ---
 # Source: minio/templates/configmap.yaml
 apiVersion: v1
@@ -514,7 +514,7 @@ spec:
         app: minio
         release: minio
       annotations:
-        checksum/secrets: 08bbc33f03ff47d68ec3bd7fa4d907dbb4e94654377ab305be971843a7553aaf
+        checksum/secrets: 31fe97c85d3e098af17eca8cc450919a84e90285cfd4993a034e11aecba4958e
         checksum/config: 0bec74b6bc048bfba4f53bfbf8adcef7dfb69fd3482fbb292a6ba398949a4fde
     spec:
       securityContext:
@@ -530,7 +530,7 @@ spec:
           command: [
             "/bin/sh",
             "-ce",
-            "/usr/bin/docker-entrypoint.sh minio server  http://minio-{0...1}.minio-svc.minio.svc.cluster.local/export -S /etc/minio/certs/ --address :9000 --console-address :9001"
+            "/usr/bin/docker-entrypoint.sh minio server  http://minio-{0...1}.minio-svc.monitoring.svc.cluster.local/export -S /etc/minio/certs/ --address :9000 --console-address :9001"
           ]
           volumeMounts:
             - name: export
@@ -583,13 +583,13 @@ metadata:
 spec:
   jobName: minio
   prober:
-    url: minio.minio:9000
+    url: minio.monitoring:9000
     path: /minio/v2/metrics/cluster
     scheme: http
   targets:
     staticConfig:
       static:
-      - minio.minio
+      - minio.monitoring
 ---
 # Source: minio/templates/post-job.yaml
 apiVersion: batch/v1
