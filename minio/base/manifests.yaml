@@ -17,8 +17,8 @@ metadata:
     heritage: Helm
 type: Opaque
 data:
-  rootUser: "Rklqb0JpOWo3S05GdXdYQXpnT3Y="
-  rootPassword: "R3Byc1lVMm9uN2EyR3p6Nm5vZk5XVmxLR0JGVDJoZnVqVm0wZldEVw=="
+  rootUser: "ZzBTTm1tMjRxRHJsbGJFR0hWQ3g="
+  rootPassword: "Q0NYUHdrZFdTMG9lYUlDMWRncFJNb05Sb2NxMGtNb0F6QTFLUXNRdw=="
 ---
 # Source: minio/templates/configmap.yaml
 apiVersion: v1
@@ -140,6 +140,9 @@ data:
     connectToMinio $scheme
     
     
+    
+    # Create the buckets
+    createBucket tempo "none" false false false
     
   add-user: |-
     #!/bin/sh
@@ -511,8 +514,8 @@ spec:
         app: minio
         release: minio
       annotations:
-        checksum/secrets: abd58d5d45077f6f5013755305da270eb124484aab74e5d529b0ef591fda4958
-        checksum/config: 86f09ed96a030e7add4ebf15ffc8db925b8cc76c838b53fb35ac86d1ecbe1412
+        checksum/secrets: 08bbc33f03ff47d68ec3bd7fa4d907dbb4e94654377ab305be971843a7553aaf
+        checksum/config: 0bec74b6bc048bfba4f53bfbf8adcef7dfb69fd3482fbb292a6ba398949a4fde
     spec:
       securityContext:
         runAsUser: 1000
@@ -623,6 +626,25 @@ spec:
                   name: minio
       serviceAccountName: minio-sa
       containers:
+        - name: minio-make-bucket
+          image: "quay.io/minio/mc:RELEASE.2023-06-28T21-54-17Z"
+          imagePullPolicy: IfNotPresent
+          command: [ "/bin/sh", "/config/initialize" ]
+          env:
+            - name: MINIO_ENDPOINT
+              value: minio
+            - name: MINIO_PORT
+              value: "9000"
+          volumeMounts:
+            - name: etc-path
+              mountPath: /etc/minio/mc
+            - name: tmp
+              mountPath: /tmp
+            - name: minio-configuration
+              mountPath: /config
+          resources:
+            requests:
+              memory: 128Mi
         - name: minio-make-user
           image: "quay.io/minio/mc:RELEASE.2023-06-28T21-54-17Z"
           imagePullPolicy: IfNotPresent

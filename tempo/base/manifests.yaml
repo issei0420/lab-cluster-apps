@@ -173,7 +173,7 @@ data:
           timeout: 500ms
         s3:
           bucket: tempo
-          endpoint: minio.minio.svc.cluster.local:9000
+          endpoint: minio.monitoring.svc.cluster.local:9000
           insecure: true
         wal:
           path: /var/tempo/wal
@@ -522,7 +522,7 @@ spec:
         app.kubernetes.io/component: compactor
         app.kubernetes.io/part-of: memberlist
       annotations:
-        checksum/config: 640c575569ddcf4fadf9ebbd12c39065cbec5e3cc66be8a3096fd0d3a9caf12b
+        checksum/config: ed0d06989df1e0df48d607ee8d10b45d751cacc0c69d569439e016c07209cbb0
     spec:
       serviceAccountName: tempo
       securityContext:
@@ -548,13 +548,11 @@ spec:
                 secretKeyRef:
                   key: rootUser
                   name: minio
-                  namespace: minio
             - name: MINIO_SECRET_KEY
               valueFrom:
                 secretKeyRef:
                   key: rootPassword
                   name: minio
-                  namespace: minio
           resources:
             {}
           securityContext:
@@ -624,7 +622,7 @@ spec:
         app.kubernetes.io/component: distributor
         app.kubernetes.io/part-of: memberlist
       annotations:
-        checksum/config: 640c575569ddcf4fadf9ebbd12c39065cbec5e3cc66be8a3096fd0d3a9caf12b
+        checksum/config: ed0d06989df1e0df48d607ee8d10b45d751cacc0c69d569439e016c07209cbb0
     spec:
       serviceAccountName: tempo
       securityContext:
@@ -759,7 +757,7 @@ spec:
         app.kubernetes.io/component: querier
         app.kubernetes.io/part-of: memberlist
       annotations:
-        checksum/config: 640c575569ddcf4fadf9ebbd12c39065cbec5e3cc66be8a3096fd0d3a9caf12b
+        checksum/config: ed0d06989df1e0df48d607ee8d10b45d751cacc0c69d569439e016c07209cbb0
     spec:
       serviceAccountName: tempo
       securityContext:
@@ -786,13 +784,11 @@ spec:
                 secretKeyRef:
                   key: rootUser
                   name: minio
-                  namespace: minio
             - name: MINIO_SECRET_KEY
               valueFrom:
                 secretKeyRef:
                   key: rootPassword
                   name: minio
-                  namespace: minio
           resources:
             {}
           securityContext:
@@ -899,7 +895,7 @@ spec:
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/component: query-frontend
       annotations:
-        checksum/config: 640c575569ddcf4fadf9ebbd12c39065cbec5e3cc66be8a3096fd0d3a9caf12b
+        checksum/config: ed0d06989df1e0df48d607ee8d10b45d751cacc0c69d569439e016c07209cbb0
     spec:
       serviceAccountName: tempo
       securityContext:
@@ -1020,7 +1016,7 @@ spec:
         app.kubernetes.io/component: ingester
         app.kubernetes.io/part-of: memberlist
       annotations:
-        checksum/config: 640c575569ddcf4fadf9ebbd12c39065cbec5e3cc66be8a3096fd0d3a9caf12b
+        checksum/config: ed0d06989df1e0df48d607ee8d10b45d751cacc0c69d569439e016c07209cbb0
     spec:
       serviceAccountName: tempo
       securityContext:
@@ -1048,13 +1044,11 @@ spec:
                 secretKeyRef:
                   key: rootUser
                   name: minio
-                  namespace: minio
             - name: MINIO_SECRET_KEY
               valueFrom:
                 secretKeyRef:
                   key: rootPassword
                   name: minio
-                  namespace: minio
           readinessProbe:
             httpGet:
               path: /ready
@@ -1175,13 +1169,11 @@ spec:
                 secretKeyRef:
                   key: rootUser
                   name: minio
-                  namespace: minio
             - name: MINIO_SECRET_KEY
               valueFrom:
                 secretKeyRef:
                   key: rootPassword
                   name: minio
-                  namespace: minio
           resources:
             {}
           securityContext:
