@@ -15,13 +15,11 @@ ingester:
       secretKeyRef:
         name: minio
         key: rootUser
-        namespace: minio
   - name: MINIO_SECRET_KEY
     valueFrom:
       secretKeyRef:
         name: minio
         key: rootPassword
-        namespace: minio
 
 # Configuration for the metrics-generator
 metricsGenerator:
@@ -44,13 +42,11 @@ compactor:
       secretKeyRef:
         name: minio
         key: rootUser
-        namespace: minio
   - name: MINIO_SECRET_KEY
     valueFrom:
       secretKeyRef:
         name: minio
         key: rootPassword
-        namespace: minio
 
 # Configuration for the querier
 querier:
@@ -63,13 +59,11 @@ querier:
       secretKeyRef:
         name: minio
         key: rootUser
-        namespace: minio
   - name: MINIO_SECRET_KEY
     valueFrom:
       secretKeyRef:
         name: minio
         key: rootPassword
-        namespace: minio
 
 # Configuration for the query-frontend
 # Handled by Grafana
@@ -142,7 +136,7 @@ storage:
     backend: s3
     s3:
       bucket: tempo                                   # store traces in this bucket
-      endpoint: minio.minio.svc.cluster.local:9000    # api endpoint
+      endpoint: minio.monitoring.svc.cluster.local:9000    # api endpoint
       insecure: true                                  # optional. enable if endpoint is http
 
 # memcached is for all of the Tempo pieces to coordinate with each other.
@@ -157,13 +151,11 @@ memcached:
       secretKeyRef:
         name: minio
         key: rootUser
-        namespace: minio
   - name: MINIO_SECRET_KEY
     valueFrom:
       secretKeyRef:
         name: minio
         key: rootPassword
-        namespace: minio
 
 memcachedExporter:
   # -- Specifies whether the Memcached Exporter should be enabled
