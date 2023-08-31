@@ -1,0 +1,856 @@
+---
+# Source: opentelemetry-operator/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: opentelemetry-operator
+  namespace: argocd
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: controller-manager
+---
+# Source: opentelemetry-operator/templates/clusterrole.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: controller-manager
+  name: opentelemetry-operator-manager
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - configmaps
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - ""
+    resources:
+      - events
+    verbs:
+      - create
+      - patch
+  - apiGroups:
+      - ""
+    resources:
+      - namespaces
+    verbs:
+      - list
+      - watch
+  - apiGroups:
+      - ""
+    resources:
+      - serviceaccounts
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - ""
+    resources:
+      - services
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - daemonsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - replicasets
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - statefulsets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - autoscaling
+    resources:
+      - horizontalpodautoscalers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - coordination.k8s.io
+    resources:
+      - leases
+    verbs:
+      - create
+      - get
+      - list
+      - update
+  - apiGroups:
+      - monitoring.coreos.com
+    resources:
+      - servicemonitors
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - networking.k8s.io
+    resources:
+      - ingresses
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - opentelemetry.io
+    resources:
+      - instrumentations
+    verbs:
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - opentelemetry.io
+    resources:
+      - opentelemetrycollectors
+    verbs:
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - opentelemetry.io
+    resources:
+      - opentelemetrycollectors/finalizers
+    verbs:
+      - get
+      - patch
+      - update
+  - apiGroups:
+      - opentelemetry.io
+    resources:
+      - opentelemetrycollectors/status
+    verbs:
+      - get
+      - patch
+      - update
+  - apiGroups:
+    - route.openshift.io
+    resources:
+    - routes
+    - routes/custom-host
+    verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+  - apiGroups:
+    - discovery.k8s.io
+    resources:
+    - endpointslices
+    verbs:
+    - get
+    - list
+    - watch
+---
+# Source: opentelemetry-operator/templates/clusterrole.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: controller-manager
+  name: opentelemetry-operator-metrics
+rules:
+  - nonResourceURLs:
+      - /metrics
+    verbs:
+      - get
+---
+# Source: opentelemetry-operator/templates/clusterrole.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: controller-manager
+  name: opentelemetry-operator-proxy
+rules:
+  - apiGroups:
+      - authentication.k8s.io
+    resources:
+      - tokenreviews
+    verbs:
+      - create
+  - apiGroups:
+      - authorization.k8s.io
+    resources:
+      - subjectaccessreviews
+    verbs:
+      - create
+---
+# Source: opentelemetry-operator/templates/clusterrolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: controller-manager
+  name: opentelemetry-operator-manager
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: opentelemetry-operator-manager
+subjects:
+  - kind: ServiceAccount
+    name: opentelemetry-operator
+    namespace: argocd
+---
+# Source: opentelemetry-operator/templates/clusterrolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: controller-manager
+  name: opentelemetry-operator-proxy
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: opentelemetry-operator-proxy
+subjects:
+  - kind: ServiceAccount
+    name: opentelemetry-operator
+    namespace: argocd
+---
+# Source: opentelemetry-operator/templates/role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: controller-manager
+  name: opentelemetry-operator-leader-election
+  namespace: argocd
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - configmaps
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - update
+      - patch
+      - delete
+  - apiGroups:
+      - ""
+    resources:
+      - configmaps/status
+    verbs:
+      - get
+      - update
+      - patch
+  - apiGroups:
+      - ""
+    resources:
+      - events
+    verbs:
+      - create
+      - patch
+---
+# Source: opentelemetry-operator/templates/rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: controller-manager
+  name: opentelemetry-operator-leader-election
+  namespace: argocd
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: opentelemetry-operator-leader-election
+subjects:
+  - kind: ServiceAccount
+    name: opentelemetry-operator
+    namespace: argocd
+---
+# Source: opentelemetry-operator/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: controller-manager
+  name: opentelemetry-operator
+  namespace: argocd
+spec:
+  ports:
+    - name: https
+      port: 8443
+      protocol: TCP
+      targetPort: https
+    - name: metrics
+      port: 8080
+      protocol: TCP
+      targetPort: metrics
+  selector:
+      app.kubernetes.io/name: opentelemetry-operator
+      app.kubernetes.io/component: controller-manager
+---
+# Source: opentelemetry-operator/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: controller-manager
+  name: opentelemetry-operator-webhook
+  namespace: argocd
+spec:
+  ports:
+    - port: 443
+      protocol: TCP
+      targetPort: webhook-server
+  selector:
+      app.kubernetes.io/name: opentelemetry-operator
+      app.kubernetes.io/component: controller-manager
+---
+# Source: opentelemetry-operator/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: controller-manager
+  name: opentelemetry-operator
+  namespace: argocd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opentelemetry-operator
+      app.kubernetes.io/component: controller-manager
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/default-container: manager
+      labels:
+        app.kubernetes.io/name: opentelemetry-operator
+        app.kubernetes.io/component: controller-manager
+    spec:
+      hostNetwork: false
+      containers:
+        - args:
+            - --metrics-addr=0.0.0.0:8080
+            - --enable-leader-election
+            - --health-probe-addr=:8081
+            - --webhook-port=9443
+            - --collector-image=otel/opentelemetry-collector-contrib:0.83.0
+          command:
+            - /manager
+          env:
+            - name: ENABLE_WEBHOOKS
+              value: "true"
+          image: "ghcr.io/open-telemetry/opentelemetry-operator/opentelemetry-operator:v0.83.0"
+          name: manager
+          ports:
+            - containerPort: 8080
+              name: metrics
+              protocol: TCP
+            - containerPort: 9443
+              name: webhook-server
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8081
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: 8081
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          resources: 
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 64Mi
+          volumeMounts:
+            - mountPath: /tmp/k8s-webhook-server/serving-certs
+              name: cert
+              readOnly: true
+        
+        - args:
+            - --secure-listen-address=0.0.0.0:8443
+            - --upstream=http://127.0.0.1:8080/
+            - --logtostderr=true
+            - --v=0
+          image: "quay.io/brancz/kube-rbac-proxy:v0.14.2"
+          name: kube-rbac-proxy
+          ports:
+            - containerPort: 8443
+              name: https
+              protocol: TCP
+          resources: 
+            limits:
+              cpu: 500m
+              memory: 128Mi
+            requests:
+              cpu: 5m
+              memory: 64Mi
+      serviceAccountName: opentelemetry-operator
+      terminationGracePeriodSeconds: 10
+      volumes:
+        - name: cert
+          secret:
+            defaultMode: 420
+            secretName: opentelemetry-operator-controller-manager-service-cert
+      securityContext:
+        fsGroup: 65532
+        runAsGroup: 65532
+        runAsNonRoot: true
+        runAsUser: 65532
+---
+# Source: opentelemetry-operator/templates/certmanager.yaml
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: webhook
+  name: opentelemetry-operator-serving-cert
+  namespace: argocd
+spec:
+  dnsNames:
+    - opentelemetry-operator-webhook.argocd.svc
+    - opentelemetry-operator-webhook.argocd.svc.cluster.local
+  issuerRef:
+    kind: Issuer
+    name: opentelemetry-operator-selfsigned-issuer
+  secretName: opentelemetry-operator-controller-manager-service-cert
+  subject:
+    organizationalUnits:
+      - opentelemetry-operator
+---
+# Source: opentelemetry-operator/templates/certmanager.yaml
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: webhook
+  name: opentelemetry-operator-selfsigned-issuer
+  namespace: argocd
+spec:
+  selfSigned: {}
+---
+# Source: opentelemetry-operator/templates/admission-webhooks/operator-webhook-with-cert-manager.yaml
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  annotations:
+    cert-manager.io/inject-ca-from: argocd/opentelemetry-operator-serving-cert
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: webhook
+  name: opentelemetry-operator-mutation
+webhooks:
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      service:
+        name: opentelemetry-operator-webhook
+        namespace: argocd
+        path: /mutate-opentelemetry-io-v1alpha1-instrumentation
+    failurePolicy: Fail
+    name: minstrumentation.kb.io
+    rules:
+    - apiGroups:
+        - opentelemetry.io
+      apiVersions:
+        - v1alpha1
+      operations:
+        - CREATE
+        - UPDATE
+      resources:
+        - instrumentations
+    sideEffects: None
+    timeoutSeconds: 10
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      service:
+        name: opentelemetry-operator-webhook
+        namespace: argocd
+        path: /mutate-opentelemetry-io-v1alpha1-opentelemetrycollector
+    failurePolicy: Fail
+    name: mopentelemetrycollector.kb.io
+    rules:
+      - apiGroups:
+          - opentelemetry.io
+        apiVersions:
+          - v1alpha1
+        operations:
+          - CREATE
+          - UPDATE
+        resources:
+          - opentelemetrycollectors
+    sideEffects: None
+    timeoutSeconds: 10
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      service:
+        name: opentelemetry-operator-webhook
+        namespace: argocd
+        path: /mutate-v1-pod
+    failurePolicy: Ignore
+    name: mpod.kb.io
+    rules:
+      - apiGroups:
+          - ""
+        apiVersions:
+          - v1
+        operations:
+          - CREATE
+          - UPDATE
+        resources:
+          - pods
+    sideEffects: None
+    timeoutSeconds: 10
+---
+# Source: opentelemetry-operator/templates/admission-webhooks/operator-webhook-with-cert-manager.yaml
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  annotations:
+    cert-manager.io/inject-ca-from: argocd/opentelemetry-operator-serving-cert
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: webhook
+  name: opentelemetry-operator-validation
+webhooks:
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      service:
+        name: opentelemetry-operator-webhook
+        namespace: argocd
+        path: /validate-opentelemetry-io-v1alpha1-instrumentation
+    failurePolicy: Fail
+    name: vinstrumentationcreateupdate.kb.io
+    rules:
+    - apiGroups:
+        - opentelemetry.io
+      apiVersions:
+        - v1alpha1
+      operations:
+        - CREATE
+        - UPDATE
+      resources:
+        - instrumentations
+    sideEffects: None
+    timeoutSeconds: 10
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      service:
+        name: opentelemetry-operator-webhook
+        namespace: argocd
+        path: /validate-opentelemetry-io-v1alpha1-instrumentation
+    failurePolicy: Ignore
+    name: vinstrumentationdelete.kb.io
+    rules:
+      - apiGroups:
+          - opentelemetry.io
+        apiVersions:
+          - v1alpha1
+        operations:
+          - DELETE
+        resources:
+          - instrumentations
+    sideEffects: None
+    timeoutSeconds: 10
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      service:
+        name: opentelemetry-operator-webhook
+        namespace: argocd
+        path: /validate-opentelemetry-io-v1alpha1-opentelemetrycollector
+    failurePolicy: Fail
+    name: vopentelemetrycollectorcreateupdate.kb.io
+    rules:
+      - apiGroups:
+          - opentelemetry.io
+        apiVersions:
+          - v1alpha1
+        operations:
+          - CREATE
+          - UPDATE
+        resources:
+          - opentelemetrycollectors
+    sideEffects: None
+    timeoutSeconds: 10
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      service:
+        name: opentelemetry-operator-webhook
+        namespace: argocd
+        path: /validate-opentelemetry-io-v1alpha1-opentelemetrycollector
+    failurePolicy: Ignore
+    name: vopentelemetrycollectordelete.kb.io
+    rules:
+      - apiGroups:
+          - opentelemetry.io
+        apiVersions:
+          - v1alpha1
+        operations:
+          - DELETE
+        resources:
+          - opentelemetrycollectors
+    sideEffects: None
+    timeoutSeconds: 10
+---
+# Source: opentelemetry-operator/templates/tests/test-certmanager-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "opentelemetry-operator-cert-manager"
+  namespace: argocd
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: webhook
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: "busybox:latest"
+      env:
+        - name: CERT_MANAGER_CLUSTERIP
+          value: "cert-manager-webhook"
+        - name: CERT_MANAGER_PORT
+          value: "443"
+      command:
+        - sh
+        - -c
+        # The following shell script tests if the cert-manager service is up. If the service is up, when we try
+        # to wget its exposed port, we will get an HTTP error 400.
+        - |
+          wget_output=$(wget -q "$CERT_MANAGER_CLUSTERIP:$CERT_MANAGER_PORT")
+          if wget_output=="wget: server returned error: HTTP/1.0 400 Bad Request"
+          then exit 0
+          else exit 1
+          fi
+  restartPolicy: Never
+---
+# Source: opentelemetry-operator/templates/tests/test-service-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "opentelemetry-operator-metrics"
+  namespace: argocd
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: controller-manager
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: "busybox:latest"
+      env:
+        - name: MANAGER_METRICS_SERVICE_CLUSTERIP
+          value: "opentelemetry-operator"
+        - name: MANAGER_METRICS_SERVICE_PORT
+          value: "8443"
+      command:
+        - sh
+        - -c
+        # The following shell script tests if the controller-manager-metrics-service is up.
+        # If the service is up, when we try to wget its exposed port, we will get an HTTP error 400.
+        - |
+          wget_output=$(wget -q "$MANAGER_METRICS_SERVICE_CLUSTERIP:$MANAGER_METRICS_SERVICE_PORT")
+          if wget_output=="wget: server returned error: HTTP/1.0 400 Bad Request"
+          then exit 0
+          else exit 1
+          fi
+  restartPolicy: Never
+---
+# Source: opentelemetry-operator/templates/tests/test-service-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "opentelemetry-operator-webhook"
+  namespace: argocd
+  labels:
+    helm.sh/chart: opentelemetry-operator-0.36.0
+    app.kubernetes.io/name: opentelemetry-operator
+    app.kubernetes.io/version: "0.83.0"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: opentelemetry-operator
+    app.kubernetes.io/component: controller-manager
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: "busybox:latest"
+      env:
+        - name: WEBHOOK_SERVICE_CLUSTERIP
+          value: "opentelemetry-operator-webhook"
+        - name: WEBHOOK_SERVICE_PORT
+          value: "443"
+      command:
+        - sh
+        - -c
+        # The following shell script tests if the webhook service is up. If the service is up, when we try
+        # to wget its exposed port, we will get an HTTP error 400.
+        - |
+          wget_output=$(wget -q "$WEBHOOK_SERVICE_CLUSTERIP:$WEBHOOK_SERVICE_PORT")
+          if wget_output=="wget: server returned error: HTTP/1.0 400 Bad Request"
+          then exit 0
+          else exit 1
+          fi
+  restartPolicy: Never

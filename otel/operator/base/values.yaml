@@ -1,0 +1,24 @@
+# Default values for opentelemetry-operator.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+## Provide OpenTelemetry Operator manager container image and resources.
+##
+manager:
+  image:
+    repository: ghcr.io/open-telemetry/opentelemetry-operator/opentelemetry-operator
+    tag: v0.83.0
+  collectorImage:
+    repository: otel/opentelemetry-collector-contrib
+    tag: 0.83.0
+
+## Admission webhooks make sure only requests with correctly formatted rules will get into the Operator.
+## They also enable the sidecar injection for OpenTelemetryCollector and Instrumentation CR's
+admissionWebhooks:
+  ## https://github.com/open-telemetry/opentelemetry-helm-charts/blob/main/charts/opentelemetry-operator/README.md#tls-certificate-requirement
+  ## TLS Certificate Option 1: Use certManager to generate self-signed certificate.
+  ## certManager must be enabled. If enabled, always takes precendence over options 2 and 3.
+  certManager:
+    enabled: true
