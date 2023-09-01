@@ -4,7 +4,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: opentelemetry-operator
-  namespace: argocd
+  namespace: monitoring
   labels:
     helm.sh/chart: opentelemetry-operator-0.36.0
     app.kubernetes.io/name: opentelemetry-operator
@@ -286,7 +286,7 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: opentelemetry-operator
-    namespace: argocd
+    namespace: monitoring
 ---
 # Source: opentelemetry-operator/templates/clusterrolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -307,7 +307,7 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: opentelemetry-operator
-    namespace: argocd
+    namespace: monitoring
 ---
 # Source: opentelemetry-operator/templates/role.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -321,7 +321,7 @@ metadata:
     app.kubernetes.io/instance: opentelemetry-operator
     app.kubernetes.io/component: controller-manager
   name: opentelemetry-operator-leader-election
-  namespace: argocd
+  namespace: monitoring
 rules:
   - apiGroups:
       - ""
@@ -363,7 +363,7 @@ metadata:
     app.kubernetes.io/instance: opentelemetry-operator
     app.kubernetes.io/component: controller-manager
   name: opentelemetry-operator-leader-election
-  namespace: argocd
+  namespace: monitoring
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -371,7 +371,7 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: opentelemetry-operator
-    namespace: argocd
+    namespace: monitoring
 ---
 # Source: opentelemetry-operator/templates/service.yaml
 apiVersion: v1
@@ -385,7 +385,7 @@ metadata:
     app.kubernetes.io/instance: opentelemetry-operator
     app.kubernetes.io/component: controller-manager
   name: opentelemetry-operator
-  namespace: argocd
+  namespace: monitoring
 spec:
   ports:
     - name: https
@@ -412,7 +412,7 @@ metadata:
     app.kubernetes.io/instance: opentelemetry-operator
     app.kubernetes.io/component: controller-manager
   name: opentelemetry-operator-webhook
-  namespace: argocd
+  namespace: monitoring
 spec:
   ports:
     - port: 443
@@ -434,7 +434,7 @@ metadata:
     app.kubernetes.io/instance: opentelemetry-operator
     app.kubernetes.io/component: controller-manager
   name: opentelemetry-operator
-  namespace: argocd
+  namespace: monitoring
 spec:
   replicas: 1
   selector:
@@ -538,11 +538,11 @@ metadata:
     app.kubernetes.io/instance: opentelemetry-operator
     app.kubernetes.io/component: webhook
   name: opentelemetry-operator-serving-cert
-  namespace: argocd
+  namespace: monitoring
 spec:
   dnsNames:
-    - opentelemetry-operator-webhook.argocd.svc
-    - opentelemetry-operator-webhook.argocd.svc.cluster.local
+    - opentelemetry-operator-webhook.monitoring.svc
+    - opentelemetry-operator-webhook.monitoring.svc.cluster.local
   issuerRef:
     kind: Issuer
     name: opentelemetry-operator-selfsigned-issuer
@@ -563,7 +563,7 @@ metadata:
     app.kubernetes.io/instance: opentelemetry-operator
     app.kubernetes.io/component: webhook
   name: opentelemetry-operator-selfsigned-issuer
-  namespace: argocd
+  namespace: monitoring
 spec:
   selfSigned: {}
 ---
@@ -572,7 +572,7 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: MutatingWebhookConfiguration
 metadata:
   annotations:
-    cert-manager.io/inject-ca-from: argocd/opentelemetry-operator-serving-cert
+    cert-manager.io/inject-ca-from: monitoring/opentelemetry-operator-serving-cert
   labels:
     helm.sh/chart: opentelemetry-operator-0.36.0
     app.kubernetes.io/name: opentelemetry-operator
@@ -587,7 +587,7 @@ webhooks:
     clientConfig:
       service:
         name: opentelemetry-operator-webhook
-        namespace: argocd
+        namespace: monitoring
         path: /mutate-opentelemetry-io-v1alpha1-instrumentation
     failurePolicy: Fail
     name: minstrumentation.kb.io
@@ -608,7 +608,7 @@ webhooks:
     clientConfig:
       service:
         name: opentelemetry-operator-webhook
-        namespace: argocd
+        namespace: monitoring
         path: /mutate-opentelemetry-io-v1alpha1-opentelemetrycollector
     failurePolicy: Fail
     name: mopentelemetrycollector.kb.io
@@ -629,7 +629,7 @@ webhooks:
     clientConfig:
       service:
         name: opentelemetry-operator-webhook
-        namespace: argocd
+        namespace: monitoring
         path: /mutate-v1-pod
     failurePolicy: Ignore
     name: mpod.kb.io
@@ -651,7 +651,7 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingWebhookConfiguration
 metadata:
   annotations:
-    cert-manager.io/inject-ca-from: argocd/opentelemetry-operator-serving-cert
+    cert-manager.io/inject-ca-from: monitoring/opentelemetry-operator-serving-cert
   labels:
     helm.sh/chart: opentelemetry-operator-0.36.0
     app.kubernetes.io/name: opentelemetry-operator
@@ -666,7 +666,7 @@ webhooks:
     clientConfig:
       service:
         name: opentelemetry-operator-webhook
-        namespace: argocd
+        namespace: monitoring
         path: /validate-opentelemetry-io-v1alpha1-instrumentation
     failurePolicy: Fail
     name: vinstrumentationcreateupdate.kb.io
@@ -687,7 +687,7 @@ webhooks:
     clientConfig:
       service:
         name: opentelemetry-operator-webhook
-        namespace: argocd
+        namespace: monitoring
         path: /validate-opentelemetry-io-v1alpha1-instrumentation
     failurePolicy: Ignore
     name: vinstrumentationdelete.kb.io
@@ -707,7 +707,7 @@ webhooks:
     clientConfig:
       service:
         name: opentelemetry-operator-webhook
-        namespace: argocd
+        namespace: monitoring
         path: /validate-opentelemetry-io-v1alpha1-opentelemetrycollector
     failurePolicy: Fail
     name: vopentelemetrycollectorcreateupdate.kb.io
@@ -728,7 +728,7 @@ webhooks:
     clientConfig:
       service:
         name: opentelemetry-operator-webhook
-        namespace: argocd
+        namespace: monitoring
         path: /validate-opentelemetry-io-v1alpha1-opentelemetrycollector
     failurePolicy: Ignore
     name: vopentelemetrycollectordelete.kb.io
@@ -749,7 +749,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: "opentelemetry-operator-cert-manager"
-  namespace: argocd
+  namespace: monitoring
   labels:
     helm.sh/chart: opentelemetry-operator-0.36.0
     app.kubernetes.io/name: opentelemetry-operator
@@ -786,7 +786,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: "opentelemetry-operator-metrics"
-  namespace: argocd
+  namespace: monitoring
   labels:
     helm.sh/chart: opentelemetry-operator-0.36.0
     app.kubernetes.io/name: opentelemetry-operator
@@ -823,7 +823,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: "opentelemetry-operator-webhook"
-  namespace: argocd
+  namespace: monitoring
   labels:
     helm.sh/chart: opentelemetry-operator-0.36.0
     app.kubernetes.io/name: opentelemetry-operator

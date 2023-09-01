@@ -10,5 +10,5 @@ helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm
 helm repo update
 
 # generate template
-helm template opentelemetry-operator open-telemetry/opentelemetry-operator --values base/values.yaml > base/manifests.yaml
+helm template --namespace monitoring opentelemetry-operator open-telemetry/opentelemetry-operator --values base/values.yaml > base/manifests.yaml
 ```
