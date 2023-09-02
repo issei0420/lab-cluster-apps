@@ -8,4 +8,6 @@ resources:
   - namespace.yaml
   - role-binding.yaml
   - role.yaml
+  - monitoring-role-binding.yaml
+  - monitoring-role.yaml
   # - resource-quota.yaml

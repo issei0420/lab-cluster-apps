@@ -6,7 +6,7 @@ metadata:
   name: tenant-role
 rules:
 - apiGroups: [""]
-  resources: ["pods", "services", "configmaps", "persistentvolumeclaims", "secrets", "pods/log"]
+  resources: ["pods", "services", "configmaps", "persistentvolumeclaims", "secrets", "pods/log", "pods/portforward"]
   verbs: ["get", "list", "watch", "create", "update", "delete"]
 - apiGroups: ["extensions", "apps"]
   resources: ["deployments"]

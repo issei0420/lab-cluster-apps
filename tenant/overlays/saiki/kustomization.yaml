@@ -5,17 +5,35 @@ kind: Kustomization
 resources:
   - ../../base
 
-namespace: saiki
+# namespace: saiki
 
 namePrefix: saiki-
 
 patches:
+  - path: namespace-patch.yaml
+    target:
+      group: ""
+      version: v1
+      kind: Namespace
+      name: tenant-namespace
+  - path: role-patch.yaml
+    target:
+      group: rbac.authorization.k8s.io
+      version: v1
+      kind: Role
+      name: tenant-role
   - path: role-binding-patch.yaml
     target:
       group: rbac.authorization.k8s.io
       version: v1
       kind: RoleBinding
       name: tenant-rolebinding
+  - path: monitoring-role-binding-patch.yaml
+    target:
+      group: rbac.authorization.k8s.io
+      version: v1
+      kind: RoleBinding
+      name: monitoring-rolebinding
   - path: cluster-role-binding-patch.yaml
     target:
       group: rbac.authorization.k8s.io

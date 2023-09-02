@@ -1,7 +1,4 @@
 ---
 - op: replace
-  path: /subjects/0/name
-  value: saiki
-- op: replace
   path: /metadata/namespace
   value: saiki
