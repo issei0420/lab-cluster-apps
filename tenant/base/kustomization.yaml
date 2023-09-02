@@ -6,6 +6,6 @@ resources:
   - cluster-role-binding.yaml
   - cluster-role.yaml
   - namespace.yaml
-  - resource-quota.yaml
   - role-binding.yaml
   - role.yaml
+  # - resource-quota.yaml
