@@ -20,8 +20,7 @@ kubectl apply -k overlays/[new tenant overlay]
 make request USER_NAME= # name of user, use tenant name for clarity
 
 # approve CSR
-kubectl approve 
-
+kubectl certificate approve [user name]-csr
 # generate kubeconfig with crt
 make generate USER_NAME= # name of user, use tenant name for clarity
 ```
