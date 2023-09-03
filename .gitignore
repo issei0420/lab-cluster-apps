@@ -1,2 +1,4 @@
 # raw secrets
+**/secrets/
 minio/base/secrets/
+registry/base/secrets/

@@ -1,0 +1,17 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+  - secrets/credentials.yaml
+
+namespace: registry
+
+patches:
+  - path: pvc-patch.yaml
+    target:
+      group: ""
+      version: v1
+      kind: PersistentVolumeClaim
+      name: registry-pvc

@@ -1,0 +1,69 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: registry-pvc
+spec:
+  storageClassName: openebs-hostpath
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: registry-cache
+  labels:
+    app: registry-cache
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: registry-cache
+  template:
+    metadata:
+      labels:
+        app: registry-cache
+    spec:
+      containers:
+      - name: registry
+        image: registry:2
+        env:
+        - name: REGISTRY_PROXY_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: dockerhub-credentials
+              key: username
+        - name: REGISTRY_PROXY_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: dockerhub-credentials
+              key: password
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/docker/registry/
+        - name: registry-storage
+          mountPath: "/var/lib/registry"
+      volumes:
+      - name: config-volume
+        configMap:
+          name: docker-registry-config
+      - name: registry-storage
+        persistentVolumeClaim:
+          claimName: registry-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: registry-cache-service
+spec:
+  type: NodePort
+  selector:
+    app: registry-cache
+  ports:
+    - protocol: TCP
+      port: 5000
+      nodePort: 31500
