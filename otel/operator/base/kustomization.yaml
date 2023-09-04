@@ -6,4 +6,4 @@ namespace: monitoring
 
 resources:
   - manifests.yaml
-  - namespace.yaml
+  # - namespace.yaml # moved to namespaces application
