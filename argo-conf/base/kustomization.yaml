@@ -3,6 +3,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
+- namespaces.yaml
 - cert-manager-crd.yaml
 - cert-manager.yaml
 - openebs-crd.yaml
@@ -10,6 +11,7 @@ resources:
 - sealed-secret-crd.yaml
 - sealed-secret.yaml
 - minio.yaml
+- registry.yaml
 - prometheus-crd.yaml
 - prometheus.yaml
 - otel-crd.yaml
