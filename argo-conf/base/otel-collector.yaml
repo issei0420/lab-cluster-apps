@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: https://github.com/hanapedia/lab-cluster-apps
     targetRevision: HEAD
-    path: otel/collector/overlays/sidecar
+    path: otel/collector/overlays/deployment
   destination:
     server: "https://kubernetes.default.svc"
     namespace: monitoring
