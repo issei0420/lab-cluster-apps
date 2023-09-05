@@ -17,11 +17,11 @@ tempo:
       #   access_key: ...                                 # optional. access key when using static credentials.
       #   secret_key: ...                                 # optional. secret key when using static credentials.
       #   insecure: false                                 # optional. enable if endpoint is http
-    backend: s3
-    s3:
-      bucket: tempo                                   # store traces in this bucket
-      endpoint: minio.monitoring.svc.cluster.local:9000    # api endpoint
-      insecure: true                                  # optional. enable if endpoint is http
+      backend: s3
+      s3:
+        bucket: tempo                                   # store traces in this bucket
+        endpoint: minio.monitoring.svc.cluster.local:9000    # api endpoint
+        insecure: true                                  # optional. enable if endpoint is http
   # this configuration will listen on all ports and protocols that tempo is capable of.
   # the receives all come from the OpenTelemetry collector.  more configuration information can
   # be found there: https://github.com/open-telemetry/opentelemetry-collector/tree/master/receiver
