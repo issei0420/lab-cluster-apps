@@ -202,6 +202,16 @@ spec:
         resources:
           {}
         env:
+          - name: MINIO_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                key: rootUser
+                name: minio
+          - name: MINIO_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                key: rootPassword
+                name: minio
         volumeMounts:
         - mountPath: /conf
           name: tempo-conf
