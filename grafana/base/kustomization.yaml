@@ -11,7 +11,7 @@ configMapGenerator:
 - name: grafana-datasources
   behavior: create
   files:
-  - datasources/prometheus-datasource.yaml
+  - datasources/datasources.yaml
 
 - name: grafana-dashboards
   behavior: create
