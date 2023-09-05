@@ -5,4 +5,4 @@ datasources:
   url: http://prometheus-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
 - name: Tempo
   type: tempo
-  url: http://tempo-query-frontend.monitoring.svc.cluster.local:9095
+  url: http://tempo-query-frontend.monitoring.svc.cluster.local:3100
