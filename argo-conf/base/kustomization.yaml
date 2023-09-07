@@ -14,6 +14,9 @@ resources:
 - registry.yaml
 - prometheus-crd.yaml
 - prometheus.yaml
+- linkerd-crd.yaml
+- linkerd.yaml
+- linkerd-viz.yaml
 - otel-crd.yaml
 - otel-operator.yaml
 - otel-collector.yaml
