@@ -1,3 +1,8 @@
 chaosDaemon:
   runtime: crio
   socketPath: /var/run/crio/crio.sock
+
+webhook:
+  certManager:
+    # Setup the webhook using cert-manager
+    enabled: true

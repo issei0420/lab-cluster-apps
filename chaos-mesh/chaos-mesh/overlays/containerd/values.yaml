@@ -1,3 +1,8 @@
 chaosDaemon:
   runtime: containerd
   socketPath: /run/containerd/containerd.sock
+
+webhook:
+  certManager:
+    # Setup the webhook using cert-manager
+    enabled: true
