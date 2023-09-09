@@ -5,4 +5,5 @@ kind: Kustomization
 namespace: chaos-mesh
 
 resources:
+  - ../../base
   - manifests.yaml
