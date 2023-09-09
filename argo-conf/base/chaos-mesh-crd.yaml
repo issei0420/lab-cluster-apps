@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: chaos-mesh-crd
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    name: chaos-mesh-crd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/hanapedia/lab-cluster-apps
+    targetRevision: HEAD
+    path: chaos-mesh/crd/base
+  destination:
+    server: "https://kubernetes.default.svc"
