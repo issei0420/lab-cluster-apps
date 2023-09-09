@@ -33,3 +33,15 @@ patches:
       version: v1alpha2
       kind: Certificate
       name: chaos-daemon-cert
+  - path: cert-manager-api-version-patch.yaml
+    target:
+      group: cert-manager.io
+      version: v1alpha2
+      kind: Issuer
+      name: chaos-mesh-selfsigned
+  - path: cert-manager-api-version-patch.yaml
+    target:
+      group: cert-manager.io
+      version: v1alpha2
+      kind: Issuer
+      name: chaos-mesh-ca
