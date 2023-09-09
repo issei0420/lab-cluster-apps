@@ -13,6 +13,7 @@ List of the applications deployed are:
 |Prometheus CRD|prometheus-crd/base|Kustomize|1|Prometheus CRD Installation|
 |Otel CRD|otel/crd|Kustomize|1|Otel CRD Installation|
 |Linkerd CRD|linkerd/crd|Kustomize|1|Linkerd CRD Installation|
+|Chaos Mesh CRD|chaos-mesh/crd|Kustomize|1|Chaos Mesh CRD Installation|
 |OpenEBS|openebs/base|Kustomize|2|OpenEBS Installation|
 |SealedSecret|sealed-secret/base|Kustomize|2|SealedSecret Installation|
 |Registry|registry/overlays/lab-cluster|Kustomize|3|Registry Installation|
@@ -23,5 +24,6 @@ List of the applications deployed are:
 |Otel Collector|otel/collector|Kustomize|4|Otel Collector Installation|
 |Grafana|grafana/base|Kustomize|4|Grafana Installation|
 |Linkerd Control Plane|linkerd/linkerd|Kustomize|4|Linkerd Control Plane Installation|
+|Chaos Mesh|chaos-mesh/chaos-mesh|Kustomize|4|Chaos Mesh Installation|
 |Linkerd Viz|linkerd/linkerd-viz|Kustomize|5|Linkerd Viz Installation|
 |saiki-tenant|tenant/overlays/saiki|Kustomize|5|Tenant used by Saiki san|
