@@ -1,0 +1,6 @@
+---
+# Namespace for openebs
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openebs

@@ -1,0 +1,3 @@
+chaosDaemon:
+  runtime: crio
+  socketPath: /var/run/crio/crio.sock
