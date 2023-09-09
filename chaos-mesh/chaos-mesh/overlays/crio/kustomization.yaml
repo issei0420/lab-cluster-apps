@@ -7,3 +7,29 @@ namespace: chaos-mesh
 resources:
   - ../../base
   - manifests.yaml
+
+patches:
+  - path: cert-manager-api-version-patch.yaml
+    target:
+      group: cert-manager.io
+      version: v1alpha2
+      kind: Certificate
+      name: chaos-mesh-ca
+  - path: cert-manager-api-version-patch.yaml
+    target:
+      group: cert-manager.io
+      version: v1alpha2
+      kind: Certificate
+      name: chaos-mesh-cert
+  - path: cert-manager-api-version-patch.yaml
+    target:
+      group: cert-manager.io
+      version: v1alpha2
+      kind: Certificate
+      name: chaos-daemon-client-cert
+  - path: cert-manager-api-version-patch.yaml
+    target:
+      group: cert-manager.io
+      version: v1alpha2
+      kind: Certificate
+      name: chaos-daemon-cert
