@@ -33,16 +33,45 @@ sidecar:
     labelValue: "1"
   datasources:
     enabled: true
-    # label that the configmaps with datasources are marked with
-    label: grafana_datasource
-    # value of label that the configmaps with datasources are set to
+    defaultFolderName: "General"
+    label: grafana_dashboard
     labelValue: "1"
+    folderAnnotation: grafana_folder
+    searchNamespace: ALL
+    provider:
+      foldersFromFilesStructure: true
 
-## raw dashboards to import by default
+# configuration for default dashboards
+# https://github.com/dotdc/grafana-dashboards-kubernetes
+dashboardProviders:
+  dashboardproviders.yaml:
+    apiVersion: 1
+    providers:
+    - name: 'grafana-dashboards-kubernetes'
+      orgId: 1
+      folder: 'Kubernetes'
+      type: file
+      disableDeletion: true
+      editable: true
+      options:
+        path: /var/lib/grafana/dashboards/grafana-dashboards-kubernetes
 dashboards:
-  default:
-    prometheus-stats:
-      # https://grafana.com/grafana/dashboards/315-kubernetes-cluster-monitoring-via-prometheus/
-      gnetId: 315
-      revision: 3
-      datasource: Prometheus
+  grafana-dashboards-kubernetes:
+    k8s-system-api-server:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-system-api-server.json
+      token: ''
+    k8s-system-coredns:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-system-coredns.json
+      token: ''
+    k8s-views-global:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-global.json
+      token: ''
+    k8s-views-namespaces:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-namespaces.json
+      token: ''
+    k8s-views-nodes:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-nodes.json
+      token: ''
+    k8s-views-pods:
+      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-pods.json
+      token: ''
