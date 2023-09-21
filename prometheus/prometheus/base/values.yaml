@@ -45,6 +45,13 @@ prometheus:
             target_label: systemd_service_name
             replacement: '${1}'
 
+  additionalRulesForClusterRole:
+  # additional rule required by default dashboard
+    - apiGroups: [ "" ]
+      resources:
+       - nodes/proxy
+      verbs: [ "get", "list", "watch" ]
+
 ## Configuration for Grafana
 ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
 ##
