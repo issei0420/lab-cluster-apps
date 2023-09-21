@@ -4,13 +4,13 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   labels:    
-    helm.sh/chart: kube-state-metrics-5.10.1
+    helm.sh/chart: kube-state-metrics-5.12.1
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: metrics
     app.kubernetes.io/part-of: kube-state-metrics
     app.kubernetes.io/name: kube-state-metrics
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "2.9.2"
+    app.kubernetes.io/version: "2.10.0"
     release: prometheus
   name: prometheus-kube-state-metrics
   namespace: monitoring
@@ -23,13 +23,13 @@ metadata:
   name: prometheus-prometheus-node-exporter
   namespace: monitoring
   labels:
-    helm.sh/chart: prometheus-node-exporter-4.21.0
+    helm.sh/chart: prometheus-node-exporter-4.23.0
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: metrics
     app.kubernetes.io/part-of: prometheus-node-exporter
     app.kubernetes.io/name: prometheus-node-exporter
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "1.6.0"
+    app.kubernetes.io/version: "1.6.1"
     jobLabel: node-exporter
     release: prometheus
 ---
@@ -46,9 +46,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 ---
@@ -65,9 +65,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 ---
@@ -76,13 +76,13 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   labels:    
-    helm.sh/chart: kube-state-metrics-5.10.1
+    helm.sh/chart: kube-state-metrics-5.12.1
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: metrics
     app.kubernetes.io/part-of: kube-state-metrics
     app.kubernetes.io/name: kube-state-metrics
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "2.9.2"
+    app.kubernetes.io/version: "2.10.0"
     release: prometheus
   name: prometheus-kube-state-metrics
 rules:
@@ -237,9 +237,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 rules:
@@ -331,9 +331,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 rules:
@@ -360,13 +360,13 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   labels:    
-    helm.sh/chart: kube-state-metrics-5.10.1
+    helm.sh/chart: kube-state-metrics-5.12.1
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: metrics
     app.kubernetes.io/part-of: kube-state-metrics
     app.kubernetes.io/name: kube-state-metrics
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "2.9.2"
+    app.kubernetes.io/version: "2.10.0"
     release: prometheus
   name: prometheus-kube-state-metrics
 roleRef:
@@ -388,9 +388,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 roleRef:
@@ -412,9 +412,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 roleRef:
@@ -433,13 +433,13 @@ metadata:
   name: prometheus-kube-state-metrics
   namespace: monitoring
   labels:    
-    helm.sh/chart: kube-state-metrics-5.10.1
+    helm.sh/chart: kube-state-metrics-5.12.1
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: metrics
     app.kubernetes.io/part-of: kube-state-metrics
     app.kubernetes.io/name: kube-state-metrics
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "2.9.2"
+    app.kubernetes.io/version: "2.10.0"
     release: prometheus
   annotations:
     prometheus.io/scrape: 'true'
@@ -462,13 +462,13 @@ metadata:
   name: prometheus-prometheus-node-exporter
   namespace: monitoring
   labels:
-    helm.sh/chart: prometheus-node-exporter-4.21.0
+    helm.sh/chart: prometheus-node-exporter-4.23.0
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: metrics
     app.kubernetes.io/part-of: prometheus-node-exporter
     app.kubernetes.io/name: prometheus-node-exporter
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "1.6.0"
+    app.kubernetes.io/version: "1.6.1"
     jobLabel: node-exporter
     release: prometheus
   annotations:
@@ -495,9 +495,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
   namespace: kube-system
@@ -522,9 +522,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
   namespace: kube-system
@@ -550,9 +550,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
   namespace: kube-system
@@ -578,9 +578,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
   namespace: kube-system
@@ -606,9 +606,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
   namespace: kube-system
@@ -634,9 +634,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -661,9 +661,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -687,13 +687,13 @@ metadata:
   name: prometheus-prometheus-node-exporter
   namespace: monitoring
   labels:
-    helm.sh/chart: prometheus-node-exporter-4.21.0
+    helm.sh/chart: prometheus-node-exporter-4.23.0
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: metrics
     app.kubernetes.io/part-of: prometheus-node-exporter
     app.kubernetes.io/name: prometheus-node-exporter
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "1.6.0"
+    app.kubernetes.io/version: "1.6.1"
     jobLabel: node-exporter
     release: prometheus
 spec:
@@ -701,6 +701,7 @@ spec:
     matchLabels:
       app.kubernetes.io/name: prometheus-node-exporter
       app.kubernetes.io/instance: prometheus
+  revisionHistoryLimit: 10
   updateStrategy:
     rollingUpdate:
       maxUnavailable: 1
@@ -710,13 +711,13 @@ spec:
       annotations:
         cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
       labels:
-        helm.sh/chart: prometheus-node-exporter-4.21.0
+        helm.sh/chart: prometheus-node-exporter-4.23.0
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/component: metrics
         app.kubernetes.io/part-of: prometheus-node-exporter
         app.kubernetes.io/name: prometheus-node-exporter
         app.kubernetes.io/instance: prometheus
-        app.kubernetes.io/version: "1.6.0"
+        app.kubernetes.io/version: "1.6.1"
         jobLabel: node-exporter
         release: prometheus
     spec:
@@ -729,7 +730,7 @@ spec:
       serviceAccountName: prometheus-prometheus-node-exporter
       containers:
         - name: node-exporter
-          image: quay.io/prometheus/node-exporter:v1.6.0
+          image: quay.io/prometheus/node-exporter:v1.6.1
           imagePullPolicy: IfNotPresent
           args:
             - --path.procfs=/host/proc
@@ -806,13 +807,13 @@ metadata:
   name: prometheus-kube-state-metrics
   namespace: monitoring
   labels:    
-    helm.sh/chart: kube-state-metrics-5.10.1
+    helm.sh/chart: kube-state-metrics-5.12.1
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: metrics
     app.kubernetes.io/part-of: kube-state-metrics
     app.kubernetes.io/name: kube-state-metrics
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "2.9.2"
+    app.kubernetes.io/version: "2.10.0"
     release: prometheus
 spec:
   selector:
@@ -820,16 +821,17 @@ spec:
       app.kubernetes.io/name: kube-state-metrics
       app.kubernetes.io/instance: prometheus
   replicas: 1
+  revisionHistoryLimit: 10
   template:
     metadata:
       labels:        
-        helm.sh/chart: kube-state-metrics-5.10.1
+        helm.sh/chart: kube-state-metrics-5.12.1
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/component: metrics
         app.kubernetes.io/part-of: kube-state-metrics
         app.kubernetes.io/name: kube-state-metrics
         app.kubernetes.io/instance: prometheus
-        app.kubernetes.io/version: "2.9.2"
+        app.kubernetes.io/version: "2.10.0"
         release: prometheus
     spec:
       hostNetwork: false
@@ -847,7 +849,7 @@ spec:
         - --port=8080
         - --resources=certificatesigningrequests,configmaps,cronjobs,daemonsets,deployments,endpoints,horizontalpodautoscalers,ingresses,jobs,leases,limitranges,mutatingwebhookconfigurations,namespaces,networkpolicies,nodes,persistentvolumeclaims,persistentvolumes,poddisruptionbudgets,pods,replicasets,replicationcontrollers,resourcequotas,secrets,services,statefulsets,storageclasses,validatingwebhookconfigurations,volumeattachments
         imagePullPolicy: IfNotPresent
-        image: registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.9.2
+        image: registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.10.0
         ports:
         - containerPort: 8080
           name: "http"
@@ -880,9 +882,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -899,25 +901,25 @@ spec:
         
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/instance: prometheus
-        app.kubernetes.io/version: "48.4.0"
+        app.kubernetes.io/version: "50.3.1"
         app.kubernetes.io/part-of: kube-prometheus-stack
-        chart: kube-prometheus-stack-48.4.0
+        chart: kube-prometheus-stack-50.3.1
         release: "prometheus"
         heritage: "Helm"
     spec:
       containers:
         - name: kube-prometheus-stack
-          image: "quay.io/prometheus-operator/prometheus-operator:v0.66.0"
+          image: "quay.io/prometheus-operator/prometheus-operator:v0.67.1"
           imagePullPolicy: "IfNotPresent"
           args:
             - --kubelet-service=kube-system/prometheus-kube-prometheus-kubelet
             - --localhost=127.0.0.1
-            - --prometheus-config-reloader=quay.io/prometheus-operator/prometheus-config-reloader:v0.66.0
+            - --prometheus-config-reloader=quay.io/prometheus-operator/prometheus-config-reloader:v0.67.1
             - --config-reloader-cpu-request=200m
             - --config-reloader-cpu-limit=200m
             - --config-reloader-memory-request=50Mi
             - --config-reloader-memory-limit=50Mi
-            - --thanos-default-base-image=quay.io/thanos/thanos:v0.31.0
+            - --thanos-default-base-image=quay.io/thanos/thanos:v0.32.1
             - --secret-field-selector=type!=kubernetes.io/dockercfg,type!=kubernetes.io/service-account-token,type!=helm.sh/release.v1
             - --web.enable-tls=true
             - --web.cert-file=/cert/cert
@@ -962,9 +964,9 @@ metadata:
     app: kube-prometheus-stack-admission    
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 webhooks:
@@ -1000,14 +1002,14 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
-  image: "quay.io/prometheus/prometheus:v2.45.0"
-  version: v2.45.0
+  image: "quay.io/prometheus/prometheus:v2.46.0"
+  version: v2.46.0
   externalUrl: http://prometheus-kube-prometheus-prometheus.monitoring:9090
   paused: false
   replicas: 1
@@ -1071,9 +1073,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -1214,9 +1216,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -1246,9 +1248,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -1414,9 +1416,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -1482,9 +1484,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -1649,9 +1651,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -1669,7 +1671,7 @@ spec:
       labels:
         verb: write
       record: code:apiserver_request_total:increase30d
-    - expr: sum by (cluster, verb, scope) (increase(apiserver_request_slo_duration_seconds_count[1h]))
+    - expr: sum by (cluster, verb, scope) (increase(apiserver_request_slo_duration_seconds_count{job="apiserver"}[1h]))
       record: cluster_verb_scope:apiserver_request_slo_duration_seconds_count:increase1h
     - expr: sum by (cluster, verb, scope) (avg_over_time(cluster_verb_scope:apiserver_request_slo_duration_seconds_count:increase1h[30d]) * 24 * 30)
       record: cluster_verb_scope:apiserver_request_slo_duration_seconds_count:increase30d
@@ -1779,9 +1781,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -2101,9 +2103,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -2132,9 +2134,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -2209,9 +2211,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -2234,9 +2236,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -2267,9 +2269,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -2324,9 +2326,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -2393,9 +2395,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -2426,9 +2428,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -2490,11 +2492,22 @@ spec:
       for: 15m
       labels:
         severity: warning
+    - alert: KubeDeploymentRolloutStuck
+      annotations:
+        description: Rollout of deployment {{ $labels.namespace }}/{{ $labels.deployment }} is not progressing for longer than 15 minutes.
+        runbook_url: https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubedeploymentrolloutstuck
+        summary: Deployment rollout is not progressing.
+      expr: |-
+        kube_deployment_status_condition{condition="Progressing", status="false",job="kube-state-metrics", namespace=~".*"}
+        != 0
+      for: 15m
+      labels:
+        severity: warning
     - alert: KubeStatefulSetReplicasMismatch
       annotations:
         description: StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} has not matched the expected number of replicas for longer than 15 minutes.
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubestatefulsetreplicasmismatch
-        summary: Deployment has not matched the expected number of replicas.
+        summary: StatefulSet has not matched the expected number of replicas.
       expr: |-
         (
           kube_statefulset_status_replicas_ready{job="kube-state-metrics", namespace=~".*"}
@@ -2674,9 +2687,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -2797,9 +2810,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -2911,9 +2924,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -2943,7 +2956,7 @@ spec:
         description: Kubernetes aggregated API {{ $labels.name }}/{{ $labels.namespace }} has reported errors. It has appeared unavailable {{ $value | humanize }} times averaged over the past 10m.
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeaggregatedapierrors
         summary: Kubernetes aggregated API has reported errors.
-      expr: sum by(name, namespace, cluster)(increase(aggregator_unavailable_apiservice_total[10m])) > 4
+      expr: sum by(name, namespace, cluster)(increase(aggregator_unavailable_apiservice_total{job="apiserver"}[10m])) > 4
       labels:
         severity: warning
     - alert: KubeAggregatedAPIDown
@@ -2951,7 +2964,7 @@ spec:
         description: Kubernetes aggregated API {{ $labels.name }}/{{ $labels.namespace }} has been only {{ $value | humanize }}% available over the last 10m.
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeaggregatedapidown
         summary: Kubernetes aggregated API is down.
-      expr: (1 - max by(name, namespace, cluster)(avg_over_time(aggregator_unavailable_apiservice[10m]))) * 100 < 85
+      expr: (1 - max by(name, namespace, cluster)(avg_over_time(aggregator_unavailable_apiservice{job="apiserver"}[10m]))) * 100 < 85
       for: 5m
       labels:
         severity: warning
@@ -2985,9 +2998,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -3015,9 +3028,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -3045,9 +3058,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -3186,9 +3199,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -3216,9 +3229,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -3259,9 +3272,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -3342,9 +3355,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -3353,7 +3366,7 @@ spec:
     rules:
     - alert: NodeFilesystemSpaceFillingUp
       annotations:
-        description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has only {{ printf "%.2f" $value }}% available space left and is filling up.
+        description: Filesystem on {{ $labels.device }}, mounted on {{ $labels.mountpoint }}, at {{ $labels.instance }} has only {{ printf "%.2f" $value }}% available space left and is filling up.
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodefilesystemspacefillingup
         summary: Filesystem is predicted to run out of space within the next 24 hours.
       expr: |-
@@ -3369,7 +3382,7 @@ spec:
         severity: warning
     - alert: NodeFilesystemSpaceFillingUp
       annotations:
-        description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has only {{ printf "%.2f" $value }}% available space left and is filling up fast.
+        description: Filesystem on {{ $labels.device }}, mounted on {{ $labels.mountpoint }}, at {{ $labels.instance }} has only {{ printf "%.2f" $value }}% available space left and is filling up fast.
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodefilesystemspacefillingup
         summary: Filesystem is predicted to run out of space within the next 4 hours.
       expr: |-
@@ -3385,7 +3398,7 @@ spec:
         severity: critical
     - alert: NodeFilesystemAlmostOutOfSpace
       annotations:
-        description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has only {{ printf "%.2f" $value }}% available space left.
+        description: Filesystem on {{ $labels.device }}, mounted on {{ $labels.mountpoint }}, at {{ $labels.instance }} has only {{ printf "%.2f" $value }}% available space left.
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodefilesystemalmostoutofspace
         summary: Filesystem has less than 5% space left.
       expr: |-
@@ -3399,7 +3412,7 @@ spec:
         severity: warning
     - alert: NodeFilesystemAlmostOutOfSpace
       annotations:
-        description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has only {{ printf "%.2f" $value }}% available space left.
+        description: Filesystem on {{ $labels.device }}, mounted on {{ $labels.mountpoint }}, at {{ $labels.instance }} has only {{ printf "%.2f" $value }}% available space left.
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodefilesystemalmostoutofspace
         summary: Filesystem has less than 3% space left.
       expr: |-
@@ -3413,7 +3426,7 @@ spec:
         severity: critical
     - alert: NodeFilesystemFilesFillingUp
       annotations:
-        description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has only {{ printf "%.2f" $value }}% available inodes left and is filling up.
+        description: Filesystem on {{ $labels.device }}, mounted on {{ $labels.mountpoint }}, at {{ $labels.instance }} has only {{ printf "%.2f" $value }}% available inodes left and is filling up.
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodefilesystemfilesfillingup
         summary: Filesystem is predicted to run out of inodes within the next 24 hours.
       expr: |-
@@ -3429,7 +3442,7 @@ spec:
         severity: warning
     - alert: NodeFilesystemFilesFillingUp
       annotations:
-        description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has only {{ printf "%.2f" $value }}% available inodes left and is filling up fast.
+        description: Filesystem on {{ $labels.device }}, mounted on {{ $labels.mountpoint }}, at {{ $labels.instance }} has only {{ printf "%.2f" $value }}% available inodes left and is filling up fast.
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodefilesystemfilesfillingup
         summary: Filesystem is predicted to run out of inodes within the next 4 hours.
       expr: |-
@@ -3445,7 +3458,7 @@ spec:
         severity: critical
     - alert: NodeFilesystemAlmostOutOfFiles
       annotations:
-        description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has only {{ printf "%.2f" $value }}% available inodes left.
+        description: Filesystem on {{ $labels.device }}, mounted on {{ $labels.mountpoint }}, at {{ $labels.instance }} has only {{ printf "%.2f" $value }}% available inodes left.
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodefilesystemalmostoutoffiles
         summary: Filesystem has less than 5% inodes left.
       expr: |-
@@ -3459,7 +3472,7 @@ spec:
         severity: warning
     - alert: NodeFilesystemAlmostOutOfFiles
       annotations:
-        description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has only {{ printf "%.2f" $value }}% available inodes left.
+        description: Filesystem on {{ $labels.device }}, mounted on {{ $labels.mountpoint }}, at {{ $labels.instance }} has only {{ printf "%.2f" $value }}% available inodes left.
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodefilesystemalmostoutoffiles
         summary: Filesystem has less than 3% inodes left.
       expr: |-
@@ -3476,7 +3489,7 @@ spec:
         description: '{{ $labels.instance }} interface {{ $labels.device }} has encountered {{ printf "%.0f" $value }} receive errors in the last two minutes.'
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodenetworkreceiveerrs
         summary: Network interface is reporting many receive errors.
-      expr: rate(node_network_receive_errs_total[2m]) / rate(node_network_receive_packets_total[2m]) > 0.01
+      expr: rate(node_network_receive_errs_total{job="node-exporter"}[2m]) / rate(node_network_receive_packets_total{job="node-exporter"}[2m]) > 0.01
       for: 1h
       labels:
         severity: warning
@@ -3485,7 +3498,7 @@ spec:
         description: '{{ $labels.instance }} interface {{ $labels.device }} has encountered {{ printf "%.0f" $value }} transmit errors in the last two minutes.'
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodenetworktransmiterrs
         summary: Network interface is reporting many transmit errors.
-      expr: rate(node_network_transmit_errs_total[2m]) / rate(node_network_transmit_packets_total[2m]) > 0.01
+      expr: rate(node_network_transmit_errs_total{job="node-exporter"}[2m]) / rate(node_network_transmit_packets_total{job="node-exporter"}[2m]) > 0.01
       for: 1h
       labels:
         severity: warning
@@ -3494,12 +3507,12 @@ spec:
         description: '{{ $value | humanizePercentage }} of conntrack entries are used.'
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodehighnumberconntrackentriesused
         summary: Number of conntrack are getting close to the limit.
-      expr: (node_nf_conntrack_entries / node_nf_conntrack_entries_limit) > 0.75
+      expr: (node_nf_conntrack_entries{job="node-exporter"} / node_nf_conntrack_entries_limit) > 0.75
       labels:
         severity: warning
     - alert: NodeTextFileCollectorScrapeError
       annotations:
-        description: Node Exporter text file collector failed to scrape.
+        description: Node Exporter text file collector on {{ $labels.instance }} failed to scrape.
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodetextfilecollectorscrapeerror
         summary: Node Exporter text file collector failed to scrape.
       expr: node_textfile_scrape_error{job="node-exporter"} == 1
@@ -3507,7 +3520,7 @@ spec:
         severity: warning
     - alert: NodeClockSkewDetected
       annotations:
-        description: Clock on {{ $labels.instance }} is out of sync by more than 0.05s. Ensure NTP is configured correctly on this host.
+        description: Clock at {{ $labels.instance }} is out of sync by more than 0.05s. Ensure NTP is configured correctly on this host.
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodeclockskewdetected
         summary: Clock skew detected.
       expr: |-
@@ -3527,7 +3540,7 @@ spec:
         severity: warning
     - alert: NodeClockNotSynchronising
       annotations:
-        description: Clock on {{ $labels.instance }} is not synchronising. Ensure NTP is configured on this host.
+        description: Clock at {{ $labels.instance }} is not synchronising. Ensure NTP is configured on this host.
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising
         summary: Clock not synchronising.
       expr: |-
@@ -3539,18 +3552,18 @@ spec:
         severity: warning
     - alert: NodeRAIDDegraded
       annotations:
-        description: RAID array '{{ $labels.device }}' on {{ $labels.instance }} is in degraded state due to one or more disks failures. Number of spare drives is insufficient to fix issue automatically.
+        description: RAID array '{{ $labels.device }}' at {{ $labels.instance }} is in degraded state due to one or more disks failures. Number of spare drives is insufficient to fix issue automatically.
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/noderaiddegraded
-        summary: RAID Array is degraded
+        summary: RAID Array is degraded.
       expr: node_md_disks_required{job="node-exporter",device=~"(/dev/)?(mmcblk.p.+|nvme.+|rbd.+|sd.+|vd.+|xvd.+|dm-.+|md.+|dasd.+)"} - ignoring (state) (node_md_disks{state="active",job="node-exporter",device=~"(/dev/)?(mmcblk.p.+|nvme.+|rbd.+|sd.+|vd.+|xvd.+|dm-.+|md.+|dasd.+)"}) > 0
       for: 15m
       labels:
         severity: critical
     - alert: NodeRAIDDiskFailure
       annotations:
-        description: At least one device in RAID array on {{ $labels.instance }} failed. Array '{{ $labels.device }}' needs attention and possibly a disk swap.
+        description: At least one device in RAID array at {{ $labels.instance }} failed. Array '{{ $labels.device }}' needs attention and possibly a disk swap.
         runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/noderaiddiskfailure
-        summary: Failed device in RAID array
+        summary: Failed device in RAID array.
       expr: node_md_disks{state="failed",job="node-exporter",device=~"(/dev/)?(mmcblk.p.+|nvme.+|rbd.+|sd.+|vd.+|xvd.+|dm-.+|md.+|dasd.+)"} > 0
       labels:
         severity: warning
@@ -3578,6 +3591,78 @@ spec:
       for: 15m
       labels:
         severity: critical
+    - alert: NodeCPUHighUsage
+      annotations:
+        description: 'CPU usage at {{ $labels.instance }} has been above 90% for the last 15 minutes, is currently at {{ printf "%.2f" $value }}%.
+
+          '
+        runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodecpuhighusage
+        summary: High CPU usage.
+      expr: sum without(mode) (avg without (cpu) (rate(node_cpu_seconds_total{job="node-exporter", mode!="idle"}[2m]))) * 100 > 90
+      for: 15m
+      labels:
+        severity: info
+    - alert: NodeSystemSaturation
+      annotations:
+        description: 'System load per core at {{ $labels.instance }} has been above 2 for the last 15 minutes, is currently at {{ printf "%.2f" $value }}.
+
+          This might indicate this instance resources saturation and can cause it becoming unresponsive.
+
+          '
+        runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodesystemsaturation
+        summary: System saturated, load per core is very high.
+      expr: |-
+        node_load1{job="node-exporter"}
+        / count without (cpu, mode) (node_cpu_seconds_total{job="node-exporter", mode="idle"}) > 2
+      for: 15m
+      labels:
+        severity: warning
+    - alert: NodeMemoryMajorPagesFaults
+      annotations:
+        description: 'Memory major pages are occurring at very high rate at {{ $labels.instance }}, 500 major page faults per second for the last 15 minutes, is currently at {{ printf "%.2f" $value }}.
+
+          Please check that there is enough memory available at this instance.
+
+          '
+        runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodememorymajorpagesfaults
+        summary: Memory major page faults are occurring at very high rate.
+      expr: rate(node_vmstat_pgmajfault{job="node-exporter"}[5m]) > 500
+      for: 15m
+      labels:
+        severity: warning
+    - alert: NodeMemoryHighUtilization
+      annotations:
+        description: 'Memory is filling up at {{ $labels.instance }}, has been above 90% for the last 15 minutes, is currently at {{ printf "%.2f" $value }}%.
+
+          '
+        runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodememoryhighutilization
+        summary: Host is running out of memory.
+      expr: 100 - (node_memory_MemAvailable_bytes{job="node-exporter"} / node_memory_MemTotal_bytes{job="node-exporter"} * 100) > 90
+      for: 15m
+      labels:
+        severity: warning
+    - alert: NodeDiskIOSaturation
+      annotations:
+        description: 'Disk IO queue (aqu-sq) is high on {{ $labels.device }} at {{ $labels.instance }}, has been above 10 for the last 15 minutes, is currently at {{ printf "%.2f" $value }}.
+
+          This symptom might indicate disk saturation.
+
+          '
+        runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodediskiosaturation
+        summary: Disk IO queue is high.
+      expr: rate(node_disk_io_time_weighted_seconds_total{job="node-exporter", device=~"(/dev/)?(mmcblk.p.+|nvme.+|rbd.+|sd.+|vd.+|xvd.+|dm-.+|md.+|dasd.+)"}[5m]) > 10
+      for: 30m
+      labels:
+        severity: warning
+    - alert: NodeSystemdServiceFailed
+      annotations:
+        description: Systemd service {{ $labels.name }} has entered failed state at {{ $labels.instance }}
+        runbook_url: https://runbooks.prometheus-operator.dev/runbooks/node/nodesystemdservicefailed
+        summary: Systemd service has entered failed state.
+      expr: node_systemd_unit_state{job="node-exporter", state="failed"} == 1
+      for: 5m
+      labels:
+        severity: warning
 ---
 # Source: kube-prometheus-stack/templates/prometheus/rules-1.14/node-network.yaml
 apiVersion: monitoring.coreos.com/v1
@@ -3590,9 +3675,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -3620,9 +3705,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -3677,9 +3762,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -3761,9 +3846,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -3782,6 +3867,15 @@ spec:
       for: 10m
       labels:
         severity: critical
+    - alert: PrometheusSDRefreshFailure
+      annotations:
+        description: Prometheus {{$labels.namespace}}/{{$labels.pod}} has failed to refresh SD with mechanism {{$labels.mechanism}}.
+        runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheussdrefreshfailure
+        summary: Failed Prometheus SD refresh.
+      expr: increase(prometheus_sd_refresh_failures_total{job="prometheus-kube-prometheus-prometheus",namespace="monitoring"}[10m]) > 0
+      for: 20m
+      labels:
+        severity: warning
     - alert: PrometheusNotificationQueueRunningFull
       annotations:
         description: Alert notification queue of Prometheus {{$labels.namespace}}/{{$labels.pod}} is running full.
@@ -4029,13 +4123,13 @@ metadata:
   name: prometheus-kube-state-metrics
   namespace: monitoring
   labels:    
-    helm.sh/chart: kube-state-metrics-5.10.1
+    helm.sh/chart: kube-state-metrics-5.12.1
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: metrics
     app.kubernetes.io/part-of: kube-state-metrics
     app.kubernetes.io/name: kube-state-metrics
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "2.9.2"
+    app.kubernetes.io/version: "2.10.0"
     release: prometheus
 spec:
   jobLabel: app.kubernetes.io/name  
@@ -4054,13 +4148,13 @@ metadata:
   name: prometheus-prometheus-node-exporter
   namespace: monitoring
   labels:
-    helm.sh/chart: prometheus-node-exporter-4.21.0
+    helm.sh/chart: prometheus-node-exporter-4.23.0
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: metrics
     app.kubernetes.io/part-of: prometheus-node-exporter
     app.kubernetes.io/name: prometheus-node-exporter
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "1.6.0"
+    app.kubernetes.io/version: "1.6.1"
     jobLabel: node-exporter
     release: prometheus
 spec:
@@ -4087,9 +4181,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -4117,9 +4211,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -4158,9 +4252,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -4192,9 +4286,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -4222,9 +4316,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -4252,9 +4346,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -4285,9 +4379,9 @@ metadata:
     app: kube-prometheus-stack-kubelet    
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -4377,9 +4471,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -4414,9 +4508,9 @@ metadata:
     
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -4444,9 +4538,9 @@ metadata:
     app: kube-prometheus-stack-admission    
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 webhooks:
@@ -4484,9 +4578,9 @@ metadata:
     app: kube-prometheus-stack-admission    
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 ---
@@ -4502,9 +4596,9 @@ metadata:
     app: kube-prometheus-stack-admission    
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 rules:
@@ -4529,9 +4623,9 @@ metadata:
     app: kube-prometheus-stack-admission    
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 roleRef:
@@ -4556,9 +4650,9 @@ metadata:
     app: kube-prometheus-stack-admission    
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 rules:
@@ -4583,9 +4677,9 @@ metadata:
     app: kube-prometheus-stack-admission    
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 roleRef:
@@ -4610,9 +4704,9 @@ metadata:
     app: kube-prometheus-stack-admission-create    
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -4623,9 +4717,9 @@ spec:
         app: kube-prometheus-stack-admission-create        
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/instance: prometheus
-        app.kubernetes.io/version: "48.4.0"
+        app.kubernetes.io/version: "50.3.1"
         app.kubernetes.io/part-of: kube-prometheus-stack
-        chart: kube-prometheus-stack-48.4.0
+        chart: kube-prometheus-stack-50.3.1
         release: "prometheus"
         heritage: "Helm"
     spec:
@@ -4669,9 +4763,9 @@ metadata:
     app: kube-prometheus-stack-admission-patch    
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: prometheus
-    app.kubernetes.io/version: "48.4.0"
+    app.kubernetes.io/version: "50.3.1"
     app.kubernetes.io/part-of: kube-prometheus-stack
-    chart: kube-prometheus-stack-48.4.0
+    chart: kube-prometheus-stack-50.3.1
     release: "prometheus"
     heritage: "Helm"
 spec:
@@ -4682,9 +4776,9 @@ spec:
         app: kube-prometheus-stack-admission-patch        
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/instance: prometheus
-        app.kubernetes.io/version: "48.4.0"
+        app.kubernetes.io/version: "50.3.1"
         app.kubernetes.io/part-of: kube-prometheus-stack
-        chart: kube-prometheus-stack-48.4.0
+        chart: kube-prometheus-stack-50.3.1
         release: "prometheus"
         heritage: "Helm"
     spec:
