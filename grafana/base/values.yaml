@@ -37,3 +37,12 @@ sidecar:
     label: grafana_datasource
     # value of label that the configmaps with datasources are set to
     labelValue: "1"
+
+## raw dashboards to import by default
+dashboards:
+  default:
+    prometheus-stats:
+      # https://grafana.com/grafana/dashboards/315-kubernetes-cluster-monitoring-via-prometheus/
+      gnetId: 315
+      revision: 3
+      datasource: Prometheus
