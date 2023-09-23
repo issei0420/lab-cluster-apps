@@ -5,4 +5,5 @@ kind: Kustomization
 namespace: kafka
 
 resources:
-  - kafka.yaml
+  - namespace.yaml
+  - manifests.yaml
