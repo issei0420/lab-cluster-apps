@@ -6,4 +6,4 @@ namespace: kafka
 
 resources:
   - namespace.yaml
-  - manfiests.yaml
+  - manifests.yaml
