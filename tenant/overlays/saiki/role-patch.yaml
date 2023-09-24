@@ -2,3 +2,9 @@
 - op: replace
   path: /metadata/namespace
   value: saiki
+- op: add
+  path: /rules/-
+  value:
+    apiGroups: [""]
+    resources: ["pods/attach", "pods/exec", "endpoints"]
+    verbs: ["get", "list", "create", "update", "delete"]
