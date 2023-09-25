@@ -13,7 +13,7 @@ List of the applications deployed are:
 |Prometheus CRD|prometheus-crd/base|Kustomize|1|Prometheus CRD Installation|
 |Otel CRD|otel/crd|Kustomize|1|Otel CRD Installation|
 |Linkerd CRD|linkerd/crd|Kustomize|1|Linkerd CRD Installation|
-|Strimzi Kafka CRD|kafka/crd|Kustomize|5|Strimzi Kafka CRD Installation|
+|Strimzi Kafka CRD|kafka/crd|Kustomize|1|Strimzi Kafka CRD Installation|
 |Chaos Mesh CRD|chaos-mesh/crd|Kustomize|1|Chaos Mesh CRD Installation|
 |OpenEBS|openebs/base|Kustomize|2|OpenEBS Installation|
 |SealedSecret|sealed-secret/base|Kustomize|2|SealedSecret Installation|
