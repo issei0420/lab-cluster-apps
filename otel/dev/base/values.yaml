@@ -1,0 +1,21 @@
+mode: deployment
+
+config:
+  exporters:
+    otlp:
+      endpoint: tempo-distributor.monitoring.svc.cluster.local:4317
+      tls:
+        insecure: true
+  receivers:
+    otlp:
+      protocols:
+        grpc:
+          endpoint: ${env:MY_POD_IP}:4317
+  service:
+    pipelines:
+      traces:
+        exporters:
+          - otlp
+        processors: []
+        receivers:
+          - otlp
