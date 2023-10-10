@@ -10,5 +10,5 @@ helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 
 # generate template
-helm template tempo-distributer --namespace monitoring grafana/tempo --values values.yaml > manifests.yaml
+helm template tempo-distributor --namespace monitoring grafana/tempo --values values.yaml > manifests.yaml
 ```
