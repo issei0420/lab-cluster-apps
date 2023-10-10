@@ -3,12 +3,12 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: my-opentelemetry-collector
+  name: otel-collector-collector
   namespace: monitoring
   labels:
     helm.sh/chart: opentelemetry-collector-0.67.0
     app.kubernetes.io/name: opentelemetry-collector
-    app.kubernetes.io/instance: my-opentelemetry-collector
+    app.kubernetes.io/instance: otelcollector-collector
     app.kubernetes.io/version: "0.84.0"
     app.kubernetes.io/managed-by: Helm
 ---
@@ -16,12 +16,12 @@ metadata:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: my-opentelemetry-collector
+  name: otel-collector-collector
   namespace: monitoring
   labels:
     helm.sh/chart: opentelemetry-collector-0.67.0
     app.kubernetes.io/name: opentelemetry-collector
-    app.kubernetes.io/instance: my-opentelemetry-collector
+    app.kubernetes.io/instance: otelcollector-collector
     app.kubernetes.io/version: "0.84.0"
     app.kubernetes.io/managed-by: Helm
 data:
@@ -103,12 +103,12 @@ data:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-opentelemetry-collector
+  name: otel-collector-collector
   namespace: monitoring
   labels:
     helm.sh/chart: opentelemetry-collector-0.67.0
     app.kubernetes.io/name: opentelemetry-collector
-    app.kubernetes.io/instance: my-opentelemetry-collector
+    app.kubernetes.io/instance: otelcollector-collector
     app.kubernetes.io/version: "0.84.0"
     app.kubernetes.io/managed-by: Helm
     component: standalone-collector
@@ -143,7 +143,7 @@ spec:
       protocol: TCP
   selector:
     app.kubernetes.io/name: opentelemetry-collector
-    app.kubernetes.io/instance: my-opentelemetry-collector
+    app.kubernetes.io/instance: otelcollector-collector
     component: standalone-collector
   internalTrafficPolicy: Cluster
 ---
@@ -151,12 +151,12 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-opentelemetry-collector
+  name: otel-collector-collector
   namespace: monitoring
   labels:
     helm.sh/chart: opentelemetry-collector-0.67.0
     app.kubernetes.io/name: opentelemetry-collector
-    app.kubernetes.io/instance: my-opentelemetry-collector
+    app.kubernetes.io/instance: otelcollector-collector
     app.kubernetes.io/version: "0.84.0"
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -165,23 +165,23 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: opentelemetry-collector
-      app.kubernetes.io/instance: my-opentelemetry-collector
+      app.kubernetes.io/instance: otelcollector-collector
       component: standalone-collector
   strategy:
     type: RollingUpdate
   template:
     metadata:
       annotations:
-        checksum/config: 1a3f120a1503dbde6a5b3556aae9c71eaf4d9b454da889743727dc9c21f86bd2
+        checksum/config: bcb777331750da544546b0c27539bf16e6c0ad51edf02bfd75bb175e393bc2d2
         
       labels:
         app.kubernetes.io/name: opentelemetry-collector
-        app.kubernetes.io/instance: my-opentelemetry-collector
+        app.kubernetes.io/instance: otelcollector-collector
         component: standalone-collector
         
     spec:
       
-      serviceAccountName: my-opentelemetry-collector
+      serviceAccountName: otel-collector-collector
       securityContext:
         {}
       containers:
@@ -233,7 +233,7 @@ spec:
       volumes:
         - name: opentelemetry-collector-configmap
           configMap:
-            name: my-opentelemetry-collector
+            name: otel-collector-collector
             items:
               - key: relay
                 path: relay.yaml
