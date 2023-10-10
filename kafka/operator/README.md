@@ -10,3 +10,8 @@ helm template strimzi-cluster-operator oci://quay.io/strimzi-helm/strimzi-kafka-
     --values base/values.yaml \
     > base/manifests.yaml
 ```
+
+## Generate manifests for dev
+```sh
+curl "https://strimzi.io/install/latest?namespace=kafka" > overlays/dev/manifests.yaml
+```
