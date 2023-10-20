@@ -6,8 +6,11 @@ metadata:
   name: tenant-role
 rules:
 - apiGroups: [""]
-  resources: ["pods", "services", "configmaps", "persistentvolumeclaims", "secrets", "pods/log", "pods/portforward"]
+  resources: ["pods", "services", "configmaps", "persistentvolumeclaims", "secrets", "pods/log", "pods/portforward", "pods/binding", "events", "nodes", "serviceaccounts"]
   verbs: ["get", "list", "watch", "create", "update", "delete"]
 - apiGroups: ["extensions", "apps"]
   resources: ["deployments"]
+  verbs: ["get", "list", "watch", "create", "update", "delete"]
+- apiGroups: ["rbac.authorization.k8s.io"]
+  resources: ["roles", "rolebindings"]
   verbs: ["get", "list", "watch", "create", "update", "delete"]
