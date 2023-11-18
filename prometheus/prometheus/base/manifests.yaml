@@ -1010,6 +1010,7 @@ metadata:
 spec:
   image: "quay.io/prometheus/prometheus:v2.46.0"
   version: v2.46.0
+  enableRemoteWriteReceiver: true
   externalUrl: http://prometheus-kube-prometheus-prometheus.monitoring:9090
   paused: false
   replicas: 1
