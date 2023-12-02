@@ -6,8 +6,11 @@ metadata:
   name: tenant-clusterrole
 rules:
 - apiGroups: [""]
-  resources: ["nodes", "replicationcontrollers", "services", "namespaces"]
+  resources: ["nodes", "replicationcontrollers", "services"]
   verbs: ["get", "list", "watch"]
+- apiGroups: [""]
+  resources: ["namespaces"]
+  verbs: ["get", "list", "watch", "patch"]
 - apiGroups: [""]
   resources: ["persistentvolumeclaims", "persistentvolumes"]
   verbs: ["get", "list", "patch", "update", "watch"]
