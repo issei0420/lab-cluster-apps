@@ -59,7 +59,7 @@ rules:
   resources: ["csidrivers", "csinodes", "csistoragecapacities", "storageclasses"]
   verbs: ["get", "list", "watch"]
 - apiGroups: ["rbac.authorization.k8s.io"]
-  resources: ["clusterrolebindings"]
+  resources: ["clusterroles", "clusterrolebindings"]
   verbs: ["get", "list", "watch", "create", "update", "delete"]
 ---
 # Cluster Role to use descheduler
