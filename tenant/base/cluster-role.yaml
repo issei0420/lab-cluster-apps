@@ -72,5 +72,5 @@ rules:
   resources: ["clusterroles", "clusterrolebindings"]
   verbs: ["get", "list", "watch", "create", "update", "delete"]
 - apiGroups: ["batch"]
-resources: ["cronjobs"]
-verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  resources: ["cronjobs"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
