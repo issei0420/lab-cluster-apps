@@ -12,6 +12,7 @@ prometheus:
              storage: 20Gi
     podMonitorSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
+    enableRemoteWriteReceiver: true
 
 ## Configuration for Grafana
 ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
