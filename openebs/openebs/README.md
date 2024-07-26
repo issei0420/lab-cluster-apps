@@ -6,7 +6,7 @@ The maninfests are generated using `helm template` and then applied via Kustomiz
 ## Generate manifests
 ```sh
 # make sure that openebs helm repo is added.
-helm repo add openebs https://openebs.github.io/charts
+helm repo add openebs https://openebs.github.io/openebs
 helm repo update
 
 # generate template
