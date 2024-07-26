@@ -10,9 +10,6 @@ resources:
 - grafana.yaml
 - kafka-crd.yaml
 - kafka-operator.yaml
-- linkerd.yaml
-- linkerd-crd.yaml
-- linkerd-viz.yaml
 # - minio.yaml # postpone for first apply in order to regenerate sealed-secret
 - namespaces.yaml
 - openebs.yaml
@@ -26,4 +23,3 @@ resources:
 - sealed-secret.yaml
 - sealed-secret-crd.yaml
 # - tempo.yaml # postpone for first apply in order to regenerate sealed-secret
-- saiki-tenant.yaml
