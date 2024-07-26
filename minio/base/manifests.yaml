@@ -12,13 +12,13 @@ metadata:
   name: minio
   labels:
     app: minio
-    chart: minio-5.0.13
+    chart: minio-5.2.0
     release: minio
     heritage: Helm
 type: Opaque
 data:
-  rootUser: "TzZ3a0JjS0h3M2o1TGNpbVY5dGw="
-  rootPassword: "c1dQSGhZVHNYaXFWUEhXYlRaT0RsNXRaUVJEekplMzNLdFl3ak9Ocg=="
+  rootUser: "NnNrQml5VHowdm4yTlNBSG1PZGg="
+  rootPassword: "eFVJZHNzWERTdU1qb25nNndvT0w4elR0WDhhY1hBdHF6NzJJdk56aw=="
 ---
 # Source: minio/templates/configmap.yaml
 apiVersion: v1
@@ -27,112 +27,111 @@ metadata:
   name: minio
   labels:
     app: minio
-    chart: minio-5.0.13
+    chart: minio-5.2.0
     release: minio
     heritage: Helm
 data:
   initialize: |-
     #!/bin/sh
-    set -e ; # Have script exit in the event of a failed command.
+    set -e # Have script exit in the event of a failed command.
     MC_CONFIG_DIR="/etc/minio/mc/"
     MC="/usr/bin/mc --insecure --config-dir ${MC_CONFIG_DIR}"
     
     # connectToMinio
     # Use a check-sleep-check loop to wait for MinIO service to be available
     connectToMinio() {
-      SCHEME=$1
-      ATTEMPTS=0 ; LIMIT=29 ; # Allow 30 attempts
-      set -e ; # fail if we can't read the keys.
-      ACCESS=$(cat /config/rootUser) ; SECRET=$(cat /config/rootPassword) ;
-      set +e ; # The connections to minio are allowed to fail.
-      echo "Connecting to MinIO server: $SCHEME://$MINIO_ENDPOINT:$MINIO_PORT" ;
-      MC_COMMAND="${MC} alias set myminio $SCHEME://$MINIO_ENDPOINT:$MINIO_PORT $ACCESS $SECRET" ;
-      $MC_COMMAND ;
-      STATUS=$? ;
-      until [ $STATUS = 0 ]
-      do
-        ATTEMPTS=`expr $ATTEMPTS + 1` ;
-        echo \"Failed attempts: $ATTEMPTS\" ;
-        if [ $ATTEMPTS -gt $LIMIT ]; then
-          exit 1 ;
-        fi ;
-        sleep 2 ; # 1 second intervals between attempts
-        $MC_COMMAND ;
-        STATUS=$? ;
-      done ;
-      set -e ; # reset `e` as active
-      return 0
+    	SCHEME=$1
+    	ATTEMPTS=0
+    	LIMIT=29 # Allow 30 attempts
+    	set -e   # fail if we can't read the keys.
+    	ACCESS=$(cat /config/rootUser)
+    	SECRET=$(cat /config/rootPassword)
+    	set +e # The connections to minio are allowed to fail.
+    	echo "Connecting to MinIO server: $SCHEME://$MINIO_ENDPOINT:$MINIO_PORT"
+    	MC_COMMAND="${MC} alias set myminio $SCHEME://$MINIO_ENDPOINT:$MINIO_PORT $ACCESS $SECRET"
+    	$MC_COMMAND
+    	STATUS=$?
+    	until [ $STATUS = 0 ]; do
+    		ATTEMPTS=$(expr $ATTEMPTS + 1)
+    		echo \"Failed attempts: $ATTEMPTS\"
+    		if [ $ATTEMPTS -gt $LIMIT ]; then
+    			exit 1
+    		fi
+    		sleep 2 # 1 second intervals between attempts
+    		$MC_COMMAND
+    		STATUS=$?
+    	done
+    	set -e # reset `e` as active
+    	return 0
     }
     
     # checkBucketExists ($bucket)
     # Check if the bucket exists, by using the exit code of `mc ls`
     checkBucketExists() {
-      BUCKET=$1
-      CMD=$(${MC} stat myminio/$BUCKET > /dev/null 2>&1)
-      return $?
+    	BUCKET=$1
+    	CMD=$(${MC} stat myminio/$BUCKET >/dev/null 2>&1)
+    	return $?
     }
     
     # createBucket ($bucket, $policy, $purge)
     # Ensure bucket exists, purging if asked to
     createBucket() {
-      BUCKET=$1
-      POLICY=$2
-      PURGE=$3
-      VERSIONING=$4
-      OBJECTLOCKING=$5
+    	BUCKET=$1
+    	POLICY=$2
+    	PURGE=$3
+    	VERSIONING=$4
+    	OBJECTLOCKING=$5
     
-      # Purge the bucket, if set & exists
-      # Since PURGE is user input, check explicitly for `true`
-      if [ $PURGE = true ]; then
-        if checkBucketExists $BUCKET ; then
-          echo "Purging bucket '$BUCKET'."
-          set +e ; # don't exit if this fails
-          ${MC} rm -r --force myminio/$BUCKET
-          set -e ; # reset `e` as active
-        else
-          echo "Bucket '$BUCKET' does not exist, skipping purge."
-        fi
-      fi
+    	# Purge the bucket, if set & exists
+    	# Since PURGE is user input, check explicitly for `true`
+    	if [ $PURGE = true ]; then
+    		if checkBucketExists $BUCKET; then
+    			echo "Purging bucket '$BUCKET'."
+    			set +e # don't exit if this fails
+    			${MC} rm -r --force myminio/$BUCKET
+    			set -e # reset `e` as active
+    		else
+    			echo "Bucket '$BUCKET' does not exist, skipping purge."
+    		fi
+    	fi
     
-    # Create the bucket if it does not exist and set objectlocking if enabled (NOTE: versioning will be not changed if OBJECTLOCKING is set because it enables versioning to the Buckets created)
-    if ! checkBucketExists $BUCKET ; then
-        if [ ! -z $OBJECTLOCKING ] ; then
-          if [ $OBJECTLOCKING = true ] ; then
-              echo "Creating bucket with OBJECTLOCKING '$BUCKET'"
-              ${MC} mb --with-lock myminio/$BUCKET
-          elif [ $OBJECTLOCKING = false ] ; then
-                echo "Creating bucket '$BUCKET'"
-                ${MC} mb myminio/$BUCKET
-          fi
-      elif [ -z $OBJECTLOCKING ] ; then
-            echo "Creating bucket '$BUCKET'"
-            ${MC} mb myminio/$BUCKET
-      else
-        echo "Bucket '$BUCKET' already exists."  
-      fi
-      fi
+    	# Create the bucket if it does not exist and set objectlocking if enabled (NOTE: versioning will be not changed if OBJECTLOCKING is set because it enables versioning to the Buckets created)
+    	if ! checkBucketExists $BUCKET; then
+    		if [ ! -z $OBJECTLOCKING ]; then
+    			if [ $OBJECTLOCKING = true ]; then
+    				echo "Creating bucket with OBJECTLOCKING '$BUCKET'"
+    				${MC} mb --with-lock myminio/$BUCKET
+    			elif [ $OBJECTLOCKING = false ]; then
+    				echo "Creating bucket '$BUCKET'"
+    				${MC} mb myminio/$BUCKET
+    			fi
+    		elif [ -z $OBJECTLOCKING ]; then
+    			echo "Creating bucket '$BUCKET'"
+    			${MC} mb myminio/$BUCKET
+    		else
+    			echo "Bucket '$BUCKET' already exists."
+    		fi
+    	fi
     
+    	# set versioning for bucket if objectlocking is disabled or not set
+    	if [ $OBJECTLOCKING = false ]; then
+    		if [ ! -z $VERSIONING ]; then
+    			if [ $VERSIONING = true ]; then
+    				echo "Enabling versioning for '$BUCKET'"
+    				${MC} version enable myminio/$BUCKET
+    			elif [ $VERSIONING = false ]; then
+    				echo "Suspending versioning for '$BUCKET'"
+    				${MC} version suspend myminio/$BUCKET
+    			fi
+    		fi
+    	else
+    		echo "Bucket '$BUCKET' versioning unchanged."
+    	fi
     
-      # set versioning for bucket if objectlocking is disabled or not set
-      if [ -z $OBJECTLOCKING ] ; then
-      if [ ! -z $VERSIONING ] ; then
-        if [ $VERSIONING = true ] ; then
-            echo "Enabling versioning for '$BUCKET'"
-            ${MC} version enable myminio/$BUCKET
-        elif [ $VERSIONING = false ] ; then
-            echo "Suspending versioning for '$BUCKET'"
-            ${MC} version suspend myminio/$BUCKET
-        fi
-        fi
-      else
-          echo "Bucket '$BUCKET' versioning unchanged."
-      fi
-    
-    
-      # At this point, the bucket should exist, skip checking for existence
-      # Set policy on the bucket
-      echo "Setting policy of bucket '$BUCKET' to '$POLICY'."
-      ${MC} anonymous set $POLICY myminio/$BUCKET
+    	# At this point, the bucket should exist, skip checking for existence
+    	# Set policy on the bucket
+    	echo "Setting policy of bucket '$BUCKET' to '$POLICY'."
+    	${MC} anonymous set $POLICY myminio/$BUCKET
     }
     
     # Try connecting to MinIO instance
@@ -429,7 +428,7 @@ metadata:
   name: minio-console
   labels:
     app: minio
-    chart: minio-5.0.13
+    chart: minio-5.2.0
     release: minio
     heritage: Helm
 spec:
@@ -450,7 +449,7 @@ metadata:
   name: minio
   labels:
     app: minio
-    chart: minio-5.0.13
+    chart: minio-5.2.0
     release: minio
     heritage: Helm
     monitoring: "true"
@@ -472,7 +471,7 @@ metadata:
   name: minio-svc
   labels:
     app: minio
-    chart: minio-5.0.13
+    chart: minio-5.2.0
     release: minio
     heritage: Helm
 spec:
@@ -494,7 +493,7 @@ metadata:
   name: minio
   labels:
     app: minio
-    chart: minio-5.0.13
+    chart: minio-5.2.0
     release: minio
     heritage: Helm
 spec:
@@ -514,8 +513,8 @@ spec:
         app: minio
         release: minio
       annotations:
-        checksum/secrets: 31fe97c85d3e098af17eca8cc450919a84e90285cfd4993a034e11aecba4958e
-        checksum/config: 0bec74b6bc048bfba4f53bfbf8adcef7dfb69fd3482fbb292a6ba398949a4fde
+        checksum/secrets: 637b7ff53d7f8d5d9498b402600106011ea01fbf453fddd5508c7e8458c0e429
+        checksum/config: 7b84adb94e4fd9a6b35c1466a69e20d5b853687996fdd4cbaa0ceddefcc2626a
     spec:
       securityContext:
         runAsUser: 1000
@@ -525,12 +524,12 @@ spec:
       serviceAccountName: minio-sa
       containers:
         - name: minio
-          image: quay.io/minio/minio:RELEASE.2023-07-07T07-13-57Z
+          image: quay.io/minio/minio:RELEASE.2024-04-18T19-09-19Z
           imagePullPolicy: IfNotPresent
           command: [
             "/bin/sh",
             "-ce",
-            "/usr/bin/docker-entrypoint.sh minio server  http://minio-{0...1}.minio-svc.monitoring.svc.cluster.local/export -S /etc/minio/certs/ --address :9000 --console-address :9001"
+            "/usr/bin/docker-entrypoint.sh minio server http://minio-{0...1}.minio-svc.monitoring.svc.cluster.local/export -S /etc/minio/certs/ --address :9000 --console-address :9001"
           ]
           volumeMounts:
             - name: export
@@ -555,13 +554,17 @@ spec:
               value: "public"
           resources:
             requests:
-              memory: 2Gi      
+              memory: 2Gi
+          securityContext:
+            readOnlyRootFilesystem: false      
       volumes:
         - name: minio-user
           secret:
             secretName: minio        
   volumeClaimTemplates:
-    - metadata:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
         name: export
       spec:
         accessModes: [ "ReadWriteOnce" ]
@@ -577,7 +580,7 @@ metadata:
   name: minio-cluster
   labels:
     app: minio
-    chart: minio-5.0.13
+    chart: minio-5.2.0
     release: minio
     heritage: Helm
 spec:
@@ -598,7 +601,7 @@ metadata:
   name: minio-post-job
   labels:
     app: minio-post-job
-    chart: minio-5.0.13
+    chart: minio-5.2.0
     release: minio
     heritage: Helm
   annotations:
@@ -627,7 +630,7 @@ spec:
       serviceAccountName: minio-sa
       containers:
         - name: minio-make-bucket
-          image: "quay.io/minio/mc:RELEASE.2023-06-28T21-54-17Z"
+          image: "quay.io/minio/mc:RELEASE.2024-04-18T16-45-29Z"
           imagePullPolicy: IfNotPresent
           command: [ "/bin/sh", "/config/initialize" ]
           env:
@@ -646,7 +649,7 @@ spec:
             requests:
               memory: 128Mi
         - name: minio-make-user
-          image: "quay.io/minio/mc:RELEASE.2023-06-28T21-54-17Z"
+          image: "quay.io/minio/mc:RELEASE.2024-04-18T16-45-29Z"
           imagePullPolicy: IfNotPresent
           command: [ "/bin/sh", "/config/add-user" ]
           env:

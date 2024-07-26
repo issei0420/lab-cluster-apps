@@ -8,13 +8,9 @@ resources:
 - chaos-mesh.yaml
 - chaos-mesh-crd.yaml
 - grafana.yaml
-- kafka.yaml
 - kafka-crd.yaml
 - kafka-operator.yaml
-- linkerd.yaml
-- linkerd-crd.yaml
-- linkerd-viz.yaml
-- minio.yaml
+# - minio.yaml # postpone for first apply in order to regenerate sealed-secret
 - namespaces.yaml
 - openebs.yaml
 - openebs-crd.yaml
@@ -23,8 +19,7 @@ resources:
 - otel-operator.yaml
 - prometheus.yaml
 - prometheus-crd.yaml
-- registry.yaml
+# - registry.yaml # postpone for first apply in order to regenerate sealed-secret
 - sealed-secret.yaml
 - sealed-secret-crd.yaml
-- tempo.yaml
-- saiki-tenant.yaml
+# - tempo.yaml # postpone for first apply in order to regenerate sealed-secret
