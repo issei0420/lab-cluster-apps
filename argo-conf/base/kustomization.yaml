@@ -8,7 +8,6 @@ resources:
 - chaos-mesh.yaml
 - chaos-mesh-crd.yaml
 - grafana.yaml
-- kafka.yaml
 - kafka-crd.yaml
 - kafka-operator.yaml
 - linkerd.yaml
