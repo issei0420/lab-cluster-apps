@@ -14,6 +14,6 @@ spec:
   source:
     repoURL: https://github.com/hanapedia/lab-cluster-apps
     targetRevision: HEAD
-    path: chaos-mesh/chaos-mesh/overlays/crio
+    path: chaos-mesh/chaos-mesh/overlays/containerd
   destination:
     server: https://kubernetes.default.svc

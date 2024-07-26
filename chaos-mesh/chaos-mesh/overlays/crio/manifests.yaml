@@ -6,12 +6,12 @@ metadata:
   namespace: "chaos-mesh"
   name: chaos-daemon
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaos-daemon
 ---
 # Source: chaos-mesh/templates/chaos-dashboard-rbac.yaml
@@ -36,12 +36,12 @@ metadata:
   namespace: "chaos-mesh"
   name: chaos-dashboard
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaos-dashboard
 ---
 # Source: chaos-mesh/templates/controller-manager-rbac.yaml
@@ -65,12 +65,12 @@ metadata:
   namespace: "chaos-mesh"
   name: chaos-controller-manager
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: controller-manager
 ---
 # Source: chaos-mesh/templates/dns-rbac.yaml
@@ -94,12 +94,12 @@ metadata:
   namespace: "chaos-mesh"
   name: chaos-dns-server
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: dns-server
 ---
 # Source: chaos-mesh/templates/secrets-configuration.yaml
@@ -109,19 +109,19 @@ metadata:
   name: chaos-mesh-chaosd-client-certs
   namespace: "chaos-mesh"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaosd-client-cert
 type: Opaque
 data:
-  ca.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURFekNDQWZ1Z0F3SUJBZ0lRSHpGNDlvV2loS0s0cEQ0QVRyWGw0ekFOQmdrcWhraUc5dzBCQVFzRkFEQVUKTVJJd0VBWURWUVFERXdsamFHRnZjMlF0WTJFd0hoY05Nak13T1RBNU1USTFPVFEyV2hjTk1qZ3dPVEEzTVRJMQpPVFEyV2pBVU1SSXdFQVlEVlFRREV3bGphR0Z2YzJRdFkyRXdnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCCkR3QXdnZ0VLQW9JQkFRREZ3R3c4SVpMK2dpclBGelpEQXFHZGk2Zjh1SWNRaTYvdndZSGFRS2VUUGxFV0tCa2QKampYa2NnYTVwbkEyRUdVTmszWU1PenhPUklBTVJ2czdxaTRsbWxMQWtDbmxjOWQwNnh3MXdXK2QwSWJVMThIcgpPUVdsS2dQV0psbUhZQnpaQjNiN29WdHZpaThQUzBqK2IzemNiczBTekVUMnEyTEZMaDQ5V1hsNndmbTI5WmpaClgrZGZ3NVBvS2ZhMXJ2aEpvNzVva0NyaTV5Mi9zTWhOZUszL0RlLzBYQTN5UlM0SDR1NjJNdjZmRXJGSTF1T2sKN0t0L1pZeTg0UkdMNXl0REM5LzlCa1hPdlVPWXRZMkJyWGZqRHg4Rk5EWldLS21jOVZsT0p5ZC9PQmUyOXUzbgpsVEZlcXhoS24yZ3Y3MXJJQkhhcFUrcnNOcVZxUUdQNWNITVBBZ01CQUFHallUQmZNQTRHQTFVZER3RUIvd1FFCkF3SUNwREFkQmdOVkhTVUVGakFVQmdnckJnRUZCUWNEQVFZSUt3WUJCUVVIQXdJd0R3WURWUjBUQVFIL0JBVXcKQXdFQi96QWRCZ05WSFE0RUZnUVUvRzdjL1IxNzQ5ZUc0WnkyUlYvcnFDNHZibDB3RFFZSktvWklodmNOQVFFTApCUUFEZ2dFQkFJeFpDTXdZRDNURzVrTFlQd25ScklJcUZUMjVrMGR3UGdydk9tUHA0ejk3SWl3U3RFS0I1MEM1CkY5OFVlaE5BYlQ1cW9Sb29hTmNmSHBIY1M5NFVLVVZnNDVCZUliODAzY1ZsRWlmWDZTMUF0bHA5Zk54RytxUlMKZTVZaVBVbFlwcVJaMWQxc1d5U2Q2SkRrYml2ZUhOcXFSUDd6dGlTR2NuSFo5QVM4cXQ3RW5uQ2c4L2tWOVQ0RgpQRXBHc0FuTGpYOXQ5ODJrT0RFRWdEVjhtRForb1FEbi9vRCtTV1BmaGpJTVVuMzBUTkZaM0FqMG9aMmlWaXEvCk9jMUxWMGc3S1lXdnlkSFNKQ09mYmdBMVRjVDZDbzIySm54NjhsWHlaTzlvOHFNR1ljOFlmNk1CcVl1S3VZaW4KRWkraWQ0TDc0OEx2Wm5BcVNnb3RpL0p3bTA2WW9Ycz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
-  ca.key: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBeGNCc1BDR1Mvb0lxenhjMlF3S2huWXVuL0xpSEVJdXY3OEdCMmtDbmt6NVJGaWdaCkhZNDE1SElHdWFad05oQmxEWk4yRERzOFRrU0FERWI3TzZvdUpacFN3SkFwNVhQWGRPc2NOY0Z2bmRDRzFOZkIKNnprRnBTb0QxaVpaaDJBYzJRZDIrNkZiYjRvdkQwdEkvbTk4M0c3TkVzeEU5cXRpeFM0ZVBWbDVlc0g1dHZXWQoyVi9uWDhPVDZDbjJ0YTc0U2FPK2FKQXE0dWN0djdESVRYaXQvdzN2OUZ3TjhrVXVCK0x1dGpMK254S3hTTmJqCnBPeXJmMldNdk9FUmkrY3JRd3ZmL1FaRnpyMURtTFdOZ2ExMzR3OGZCVFEyVmlpcG5QVlpUaWNuZnpnWHR2YnQKNTVVeFhxc1lTcDlvTCs5YXlBUjJxVlBxN0RhbGFrQmorWEJ6RHdJREFRQUJBb0lCQVFDZHc5ZFYzYjlGRnhvSwpIODJsaG1yam92Q0JlY0lmbkNIZjJIUzlaOG1KZWpUOHhUN01TcEdLVU1JMnlLZExLcWRFUG5uMlppZkZsWGJHCjFMWklzb3VnYWs5TTIzYmhYUnJ1WjBnWlJ0ckNnQU9odVFRM29rVnpzR0poTGpWTkFJdmpSY1pTR0RnM2MzbjUKN0trdWZFbVVIejJ5bW84R2NGTWJWcUMvZHl1b2w4S3RHNkN4Z0NRVllVSlhtN2NUZnB0SGFEVHo0QWx6VjYzNQptUjB3NFd2bStSOWJPKy9DNXZReEgwNm0xalRUV05SUEZzTmtwRWMyRTZhZmFKVGUydGZtRU56Y1V6RVMyK0ZxCnQ2N2JHQkxEaWp3N3RLSFdqdXU0Y05yeWpOQ2NiTnA0MndhYUNGblBORXlkNHhMb1F1QWhQOVl1dUNXN1lqZ0wKSFBMRVNSUzVBb0dCQVBIUGpPaHFyM1RNdjJpR20vTDA3YzhnWnoxVFh1MklNUlhSeGs1R3E2aFhWNTlOZEc2dAoyQVJKblZMWmhmOWQzY2VnVnVmZEM0cTlZaG5QUVZnMDhhYlZia0p2bXdLSkMwb1NJVzBpTkdoOHdncmM5UlFOCmRrRm5LSnlIY2EwTHBvOGkwcmZydS9UQnlsYWJZWVBKdVVyYVJuelowTDNUZmQ0SnhWT3RWK0o5QW9HQkFORmIKQmJ5enBOSXVQcndabGFqRDJ2d1RrQzNpckVmWEdZVVlPQkdGYmVzbVc3VmU3YmZObXhiZmJVTzlIc1NQalpyZApCc1pTVmtHdThEcE95ekpEMGkvdDVmeTF2OFBiYXVqSVV5cExONjByRDd3ZVFRa3dsc2YyMU0zMGc3QUtKUzRnCmZxTW5yaEtBbmNiZzUrYUhDV0hSVlpJMms2RlY3TkJoSXdqaldmVjdBb0dBVXZDOHhTOXF0U1pSZFBuTzNkdlQKQWR0OGJkVjkxdjJDMEpnZWE5VGpwaDhuUjlYYVhPZzJFdXBwRXZUWGVFcnEra0R0N2lPc2hNOEdxaEdqdVN5WAp3b0NzakE4WjNSbkNqSXFCZXB4ajIzOEhVNUNNWTI5bW8zSk54THJVYStWMklOeHg2SEhzQ3p5NU9WR2NkZ2FvCkRwdWwxOGNpU1NvVW55Yzh6c0hEUmtVQ2dZQnZrNE5MUHJMcEVaeDl3MlR2dlBKSXhtUmhFQjJoYkJJOXpOcVUKKy9mSkMzaDFBVkxRVXRRRkxLNmZHM3Y2WmtlaDhZcGF5Q2NRZXB1dGQ3RHo2UkZzV2UzbzhUUnl2YzRNb2pjdwpvMFhaRk1vZUNFSEJGQlJJSGxUc0x4VEFEYWdqSFU1Z3hoVVA1MXd2VWs1Rm5sSnh2NDlMamFyQW9YckUxQUJJCkRHTTFZUUtCZ1FDRWdlTXh2VkFNQXVDWHIzdmhzbE5Qb2dmVWloaG1XMzg0THhETGgwa1lSLzFiVmhCVkNMUGIKOUxrOExod3hXZFVCWnFyZnVvREVGT1RNZ2V6RWtaQ2ZmUUVQQVNRdEFmMXFYaXp3TEhJN1NhaHFkZmp3aUpXLwpIOU5xREkzOGRiQjF5THJBODd6Y2dGMU5GdkFXcEZNTDJwMGlqU0xNSC8wNHdVRVc2WW96K2c9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
-  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURaakNDQWs2Z0F3SUJBZ0lSQU52YmpReUVCck9TRWhIWG95cnBqbWt3RFFZSktvWklodmNOQVFFTEJRQXcKRkRFU01CQUdBMVVFQXhNSlkyaGhiM05rTFdOaE1CNFhEVEl6TURrd09URXlOVGswTmxvWERUSTRNRGt3TnpFeQpOVGswTmxvd0xERXFNQ2dHQTFVRUF4TWhZMjl1ZEhKdmJHeGxjaTF0WVc1aFoyVnlMbU5vWVc5ekxXMWxjMmd1CmIzSm5NSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUJDZ0tDQVFFQXdXWlhVYk14MFlxMFFzOFUKek01YzRzNE1MbnhvOVZ6UEtmRTcyalkwZ3QrenZNYlBwUlRveENXYnhLZnJEWDN0SGcraDQ3czNaSTJWVHV4Kwo1UmlJMnR6dlplaTdHa0p6bmszMHNWc3lHd1h1OFJONDFzRHc2V2tzbGxKaHJjL0VLOWJ6T2ZUdFN1UUhNa21OCm9GU0F5cGpNM1JLa0tJUXdvUmFOYXlXTWtSMmZSbjhUUmhFc0R1VTFZNHNwUmlrQjNjTmsyL3k1S3MzeFZHYzgKNFljVFBIa2E3eFZ2aTcvV1M1c2phUTZwVmkveU54QWFCcnJOWk80Rkd2YVh4UURtNC94a3hIaHRkRE9GbzBENgpGRk9XWE9YN2lMK2hHVlcwQ3psTEV3d0pBMCtINnluL0RJZzZibkpwbktXbVAxQ1hMM1Y4RFdJUld5b25MOGJtCk5MVGV0d0lEQVFBQm80R2FNSUdYTUE0R0ExVWREd0VCL3dRRUF3SUZvREFkQmdOVkhTVUVGakFVQmdnckJnRUYKQlFjREFRWUlLd1lCQlFVSEF3SXdEQVlEVlIwVEFRSC9CQUl3QURBZkJnTlZIU01FR0RBV2dCVDhidHo5SFh2agoxNGJobkxaRlgrdW9MaTl1WFRBM0JnTlZIUkVFTURBdWdnbHNiMk5oYkdodmMzU0NJV052Ym5SeWIyeHNaWEl0CmJXRnVZV2RsY2k1amFHRnZjeTF0WlhOb0xtOXlaekFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBQnErQXBXRE4Kb0hXZ3lIWU4yUVh3SGFDV3FZeFFnMXU5ZzlQRU9hSnMyRWxwYWs1NFhEaENRak1TUE1pQ3RDWUVYZ2R5K1k5aQpoVlN2VVdiOWdnRGROZlMxSDRRdlczZ1FaMHk3UFY3MEJ0NVBTenhvbmZuaXI2K1NPVGtUNkpMRFBnU1lld2hWClZMeDRUcURRYzRORTlIQm5GK29kS01oMVlsTmg4VkdrODRZZGJDUmtta2QveThTMHF2cDEvek96VGN3V3NVRzYKVFBZcTF2ZVAyVHZhVTh4OTdCdGFSSW9CaVMvK0ZhZ2ZpWkFPOVlLcDYyb0RFR2t1a29ka012Mkwxa0ZsWmlxRwpoajlvUk1yOFRJUzFlelZRSXU1WVlEVC81S0E4S04wWG92c1dPb2NRL2JSVk5xeE5qS0MvMENjTlFRZndPOEtMCm5ySVpwWWlGdjl2UXdnPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
-  tls.key: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBd1daWFViTXgwWXEwUXM4VXpNNWM0czRNTG54bzlWelBLZkU3MmpZMGd0K3p2TWJQCnBSVG94Q1dieEtmckRYM3RIZytoNDdzM1pJMlZUdXgrNVJpSTJ0enZaZWk3R2tKem5rMzBzVnN5R3dYdThSTjQKMXNEdzZXa3NsbEpocmMvRUs5YnpPZlR0U3VRSE1rbU5vRlNBeXBqTTNSS2tLSVF3b1JhTmF5V01rUjJmUm44VApSaEVzRHVVMVk0c3BSaWtCM2NOazIveTVLczN4VkdjODRZY1RQSGthN3hWdmk3L1dTNXNqYVE2cFZpL3lOeEFhCkJyck5aTzRGR3ZhWHhRRG00L3hreEhodGRET0ZvMEQ2RkZPV1hPWDdpTCtoR1ZXMEN6bExFd3dKQTArSDZ5bi8KRElnNmJuSnBuS1dtUDFDWEwzVjhEV0lSV3lvbkw4Ym1OTFRldHdJREFRQUJBb0lCQVFEQkk5eG1LZ2ZCbEx5Swp6OVdjNXlYYUZ4NFJPb3R6SmZsNWtJRk9YYjI1U1lCdE1UcmpTT3RnSDVMZEpUalhZMy91K251Wk96bUpnTit3ClR2dzIvSGFINUFac2hxeDhBQXNJK0I4N0U3RUpUYmFmS093UHcrV1RwRVl6NVJmSmhla0tRd0xxU1ZERTdzN0YKQ0xHWWdXdVJhR0dIRWZ2QXZxcjE1TmpjUFVhUkQvMTk4RFdCNzJ2bzlJLzgrU2M2Nis0ZU1MdzJmb0xKREIzWAozbHhEelFwNDZ1TGhncHpzdGVvZ3Y3QTVKc3FHV3lJNDdYUThXU3N4TUtUOXFFNHc0aFo1alMvVFhMTmxGR3ZjClBhKzJjSnRUNXRtNTNxcEh4YW5FVTF6OE5RMTJNY1hXQSt5TVh1V25Mc0JDb2pFdjNXdEhrTVpFblAxRm9XVzgKNWRJQnhIY0JBb0dCQU1WRHBYdEJxZTJNN1BtcVI2b1NFSXZIcC94QWpZT0NoWmplUHF4V1RIS01tU0JHekhicgpqZDhXUjhURjJibDNYR2tlMHpiZ0lNSkhtR3AvRjgzQk9mQTJwQm5HRis2VjdnTTVFQU1OdXpGdDd0NnZoeWs4CjZqa2FkcWMyelYwaXo1QmZrV0hWTk1PVittRUlLVlNsZ01UUlk0Vm9VK0pTT2FXOXllWHFRRmszQW9HQkFQcjgKSUp1MGd5b21yTHdmWFEydmNUZzE5V0ZIdHdqSmVibGFHZE5teWZBZDZRUHVDaTdhVE4rRG5DaG03M0NUYTBBVApYSTIveHJHL211bjdpd0d4Z3JvaElQclJsTDdlUGE3UW5qbzBUSnRvK0dXb1BtNjg0ZEdlT25aRkxrdWtqRnU1CjJwTVJsVEVvdE9YU1NkNmlyenNsc2NBZElyd2lSWEh4Yk1CZEpHYUJBb0dBVkwrblRMajlSRzJUTWdBU0llTDQKOE5TcU94bVFzcnRVb2tSNU1Ka3k1dE80eGNFay9zSmNoVWVSTmR5Nm1ZL0tSKzlTVnZVYm5kd2NnMFJ1K1pyVwpSWGwwTHc2SUlaeVFVUm9tNHVqM1Qxa25rc3hlaVR6K2MrSUdyL2cvYXBBV0ZMUzZSUW5RVFdjVjFySW03NUxiCks3TzV5Z3IwWHZ0c2dPUjA1UzRxenlrQ2dZRUFuUkR0Z3lPTE5mU3dBcWFLQUVkN3poYU9jZ3VFTXQ2SzY0REUKU3JTM3lTbWVxaFBza1hlUnhnckJ6ZExsSXdsT2cvSFo2T2RMKys2UmpyNFpOcjBVdDFDR0tCRENTbFFnTytkWQpMY3FPNm03ZGpCaW13WHc0d1lxSXdYejN4T1M3NWFkQWJ1c0E5NXVtNFhBaFJFK0E0NzNxSi9UVHlQS1ZqUUh0CjhkQVlPSUVDZ1lCVEpKekZiVWw0Ui9kekZGWGRtZ1BBUzZzeVpaUW9NYndZQnNWMXIrQlk3d21kRlN2T1cwTkgKVFp6QTREZG0wc2RWV2lKdU03Z01xaTd1elI3cW1OdWYxTkZqb2tuYW1nQlpGUkc3c3V6RyswcEtBNDdZalJMUwpxKzhIUUVBSm5HeDYvYTkzT3QzTExIeWlYZEJVT09rQnZOamVDcGJUT21xeEZGbm1QWHZsMXc9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
+  ca.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURGRENDQWZ5Z0F3SUJBZ0lSQUxsUWN2azByOXM2cW5PWVkzZW1EblF3RFFZSktvWklodmNOQVFFTEJRQXcKRkRFU01CQUdBMVVFQXhNSlkyaGhiM05rTFdOaE1CNFhEVEkwTURjeU5qQTNNRGMwTlZvWERUSTVNRGN5TlRBMwpNRGMwTlZvd0ZERVNNQkFHQTFVRUF4TUpZMmhoYjNOa0xXTmhNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DCkFROEFNSUlCQ2dLQ0FRRUF0VzJCVXQ0azltTkRXVVM4WCtHQlJWaTZ3Y0Q1V3N5eEh4V0hPYUptN2JEUlpNVU4KTGxTdXpnQ2NxSWJoemFJdGJ2QTE5c1NWcFR3S0dwS0F0RmkvemQ1V1RURFhqT3EvdUhyaEVTS1JtaE9RRVV5ZQp2YUdQeHJvVjdQTWJtT25Cbk5BRW8vRmJoK1JHMm1mdjdVbmdRaWROOEhEQXN0T2xKZnVacW1yREhtTWwwZ2xiCmFmS1hXZitHbjRyNU15K2hyM2EyaTh2Y1NQNnFNTkZyeCt5KzdPSTNnZjBnVWtzWXFXQ1FpdEY2ZjVSaXhYVEkKMFRaUk92d0VKU1FITDNud1J3OUYvVVdTdEJSM05aeDNpd0xkTzVmOWdaT0hMWlJtRlk3V3A5TDhUR2NVdlhOegowNHpXT1pUMmhkMWVMSUtMcTkrMzR3ME0xSGZBTmdtZEo3akk2UUlEQVFBQm8yRXdYekFPQmdOVkhROEJBZjhFCkJBTUNBcVF3SFFZRFZSMGxCQll3RkFZSUt3WUJCUVVIQXdFR0NDc0dBUVVGQndNQ01BOEdBMVVkRXdFQi93UUYKTUFNQkFmOHdIUVlEVlIwT0JCWUVGSzNBWlNyNWw4YTZlLzFxT0VzUzBqNU91aW03TUEwR0NTcUdTSWIzRFFFQgpDd1VBQTRJQkFRQVEzUlRUZ3dGNzNGYWlZbnZUT1d6dmI5T09DYVl2SWpDYmZVSXNLaCtrcmFlZFR3UFdUZ2VqCnpJUFZpbkxKTnQwaWlESnFzekxIb1lscXlsRXZrV3Y1VVhlMFZQNmZOYWtjMzlhVC9Tb2x6MVRBc0NrVWpLcWMKeS9vb2VIS1kwY0JvYjQyLzFUbkZadXpHWC9pRGgxdXNrNUxlWjVBQjU1S09ieENSWXFDMFdmOXJoSDUyUW9pVApHdTZKOGJ5ZnErY0o0aUZFM3JCd0dMYysybjg5STlGN1F1U1dRVFFZaGtCLzk4MldiRHVhNjMwcVRtMG9McTdnCndJWFRUTmd5Umw3cXlvZVd5SXNSY2RNZVIyVFgvUlFlU3ErV2xUUHo2V0ZlNXZlUmVOQ28zdWdTS1RmVVd5WWwKcm42YXp2NDRycGc1Y3F0dThaNWYrbW92MjB1OTdESTUKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+  ca.key: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcGdJQkFBS0NBUUVBdFcyQlV0NGs5bU5EV1VTOFgrR0JSVmk2d2NENVdzeXhIeFdIT2FKbTdiRFJaTVVOCkxsU3V6Z0NjcUliaHphSXRidkExOXNTVnBUd0tHcEtBdEZpL3pkNVdUVERYak9xL3VIcmhFU0tSbWhPUUVVeWUKdmFHUHhyb1Y3UE1ibU9uQm5OQUVvL0ZiaCtSRzJtZnY3VW5nUWlkTjhIREFzdE9sSmZ1WnFtckRIbU1sMGdsYgphZktYV2YrR240cjVNeStocjNhMmk4dmNTUDZxTU5GcngreSs3T0kzZ2YwZ1Vrc1lxV0NRaXRGNmY1Uml4WFRJCjBUWlJPdndFSlNRSEwzbndSdzlGL1VXU3RCUjNOWngzaXdMZE81ZjlnWk9ITFpSbUZZN1dwOUw4VEdjVXZYTnoKMDR6V09aVDJoZDFlTElLTHE5KzM0dzBNMUhmQU5nbWRKN2pJNlFJREFRQUJBb0lCQVFDeThHUkMxVExqaUJlZQo3ZnBWSHRjZkRGcDJTdHdsUUFuWnZLUDRwa0thWUhERjBNd2xUQVIwelltMWRnTXppNmIvNmc5dmFZaW14Y2E1CldwRnlUcTR1WUFJQ2RBL0V2cXVGU2p5OVo3anZuQ2ZWeUJvd3NpNWFOS0wzWnZkckkvSi90WE0rTndpdHlPcFEKODM1aUxTRHdYayt5dTZKelBlZCt4TjVVaEtRWlRNc1hnRjVnWHpReWFrdlRpTHJVTW5xbnQ2cy9DdW9WVWdjbwpVbldCTUYrYjhHWWxTMDdkc2E3TkVHcGtGa2Rycm96Nks2K2hOQlZCREJKblJhNis1d3kvQndiaTVkb2NlK3kzCi9ab0RTd2RBaUVqelFaLzFHK1JKSW9YbE1FaDF1YnJTYVJaR25ndjNvdis3TkpKaFZkbm5JRUNWeFJEV1l3TFQKSjgxZ0JkdGhBb0dCQU9Kc3BET3YySkN2WWdHazNNU2FZUy9vNWFWcEZqRmxIR2hKYU9HNE02emJYTGZUbmlLSgpmQTBvWmE2aEoya25iMm1BUk5tRkJ2d1VWUE51ZW0yZnBZS3pvWWJrdkJINDZLN2VTYTR0NmtobFJvMjl1SjZXCnpPNTJMelFjT0FQaENVQzgvRXRyWFJEVnpnL2F3WGVzandyMFpLZy8reEdaUGJJbHBHemFhTkxGQW9HQkFNMGcKT3hSQkRkVlQ3TzlQMkdRMjZiNndLaWt5Wm93NkZvak53dlZvb1E4S2x5MmN5K09lQkdRakpJQnpTQ0pOckVVMAoxZW0zdU5jTEtVNGV1SWZyVzdKczNMQlk0SFM4dzFTOTZFL2VBOE5EblVwZEhmS0k3dzBVbmhpZUVZN0FzdmdjCi8xVm1UdHZhNWNtbEdJRUFBSExrQVJZUGxQZ2F6bnVDSTQySWhtL1ZBb0dCQUloT2VNYzQyL20xNngwc1AwOEgKMU92L200ZnBiRmZPRTd6Z1BJaHQySVgrQktJUmZnZ3lsZ0JoeWx6SFhTOWJjeUdpKzArcldwb1VMMVBndFVrYgpLNHMwVWxBZmtPeU0ySjYwNk13M2pldUpOR0VOem4rQ0x0cDdRVTF3azNRYVcvU2lFSXZpbFVNV1F4ZWVUSXViCjBQejZSVUpZU2UrOVBidnFGME1FZE1nMUFvR0JBTGJnM21zL1dKTHlBUktYRUNqQW9JTG0wcC9xRkcwK3VLcDkKTUN6VmZJcEplZUVyb3Nlck1PVUtROWZWYitGTmVLSTI2ZVEyYlRBai9rNXNxejVhd21VQUUzMlJyNFBFYXkyWgpKbzVXTk9xWTFKbmhEUHNYeEhEWUNkK094YjZNNU1LNkw1YTI0T1c0Y2hmbC9rTzhlYW4weDFjZ3kwS3J1NTEzCnVEVE9ISFdGQW9HQkFNSnEwTlhVZEorbGVoV2RsdGVzM2tUbXV6VWF4L3JiZmI3M1Z3TjErZTBZekdZTThrdSsKS1pZMDBFbmVKVTBBSDh2M0VETWFoRFYwbWtyZmx3b3hSdzVRMlpnRVRZdjQxVHE3b0IwVWFDMGd1cW90YWx0Ugp6YTIxei9tK2F4QURWVENIdkpFME5Yb3k1YTUzUzZMYVdmblBGUndPMEFMbHJnOE9XSTRIdytwbgotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURaVENDQWsyZ0F3SUJBZ0lRYlpwSW5qSVYvY2hRbDAyZnlGOXluREFOQmdrcWhraUc5dzBCQVFzRkFEQVUKTVJJd0VBWURWUVFERXdsamFHRnZjMlF0WTJFd0hoY05NalF3TnpJMk1EY3dOelExV2hjTk1qa3dOekkxTURjdwpOelExV2pBc01Tb3dLQVlEVlFRREV5RmpiMjUwY205c2JHVnlMVzFoYm1GblpYSXVZMmhoYjNNdGJXVnphQzV2CmNtY3dnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUtBb0lCQVFEcVFpZnV3QzcwVkhYWEVPWWgKeUFoU3BSOEZwQzVhZys1QW9BY2luODRDK0ZraytzbW5sTkJmYjBkN2ZyTElqU25IZUV1dEJEUnFVWTVETU5VVwpteE1XTWVGSWZ0dGwrR2JBaWQyL1htR1MyaHFsOGhTRWIwMEtmNEVGVDVETy9neXlNcHoxYzZnL3NLaEdtYml0CmZCRVR5OXhqQkdlZ0F4MzRQSzRNSGVFaXRPRzJEdGxqR0V2T0dXL2VPaWd0WkxoY1FrY2ZrQTBzV1JYaTYwQ2cKMmpGcjJXbTV2UENXTkJqODltVVRkOTdWWExmZmVHbWlHU0F4U2wzTjBlZE81THE0QUJrSEVEcnpNdVVKQTFUTgpsR3dsR0FOWTJPU2dnMHdnWVVCSjNWZklVQ2VDRmwwb0krcDY5dDhSRWFYV0lHSnN5a0RrbDRpODRXdkh1c05nCm9lOUZBZ01CQUFHamdab3dnWmN3RGdZRFZSMFBBUUgvQkFRREFnV2dNQjBHQTFVZEpRUVdNQlFHQ0NzR0FRVUYKQndNQkJnZ3JCZ0VGQlFjREFqQU1CZ05WSFJNQkFmOEVBakFBTUI4R0ExVWRJd1FZTUJhQUZLM0FaU3I1bDhhNgplLzFxT0VzUzBqNU91aW03TURjR0ExVWRFUVF3TUM2Q0NXeHZZMkZzYUc5emRJSWhZMjl1ZEhKdmJHeGxjaTF0CllXNWhaMlZ5TG1Ob1lXOXpMVzFsYzJndWIzSm5NQTBHQ1NxR1NJYjNEUUVCQ3dVQUE0SUJBUUNsM3pCNEVvalgKaEthdU1Xc3JIeHo5ZWlyaXBCc0w2R3Z1SFUwUk1QSnZraDAyMkZ0UkR4MFduaFpwZU55YWdtcWZ6S21GRU5kdAp0NkdPK2ZQYm5aSW9KaVhnZVRpSUg1azAzdWprcUV0dTd5bDBCMjVYbEhxc1RSYkZvYlFDUXhJYUJOUGxiY3JTCmJsYWZwRlN2b09pSDAySjhjK0tuRzA1SkRvM2dlTkhaeS91UVFDcVZwSHBEbHk0K0RwL3JhSVZHbDhjd0x1c0kKUUt1Z3lhbEorMnhrWkQ3SzIvbXlrcWFPUG5uQ0FJblVXdmU2ekhEckptckt4dHNOdDJpOWdPWU1hZjZIbWI2ZQpTVU4rRmN5T042eFhkRHVLUU9yNXJIVENaaER5TzlqeCs4TXFzeVE4TnFDNjZkS25rOHd4RVRWQTY3NWVoeTUzCkJTYXBaWmFUU2ZvcAotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+  tls.key: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBNmtJbjdzQXU5RlIxMXhEbUljZ0lVcVVmQmFRdVdvUHVRS0FISXAvT0F2aFpKUHJKCnA1VFFYMjlIZTM2eXlJMHB4M2hMclFRMGFsR09RekRWRnBzVEZqSGhTSDdiWmZobXdJbmR2MTVoa3RvYXBmSVUKaEc5TkNuK0JCVStRenY0TXNqS2M5WE9vUDdDb1JwbTRyWHdSRTh2Y1l3Um5vQU1kK0R5dURCM2hJclRodGc3WgpZeGhMemhsdjNqb29MV1M0WEVKSEg1QU5MRmtWNHV0QW9Ob3hhOWxwdWJ6d2xqUVkvUFpsRTNmZTFWeTMzM2hwCm9oa2dNVXBkemRIblR1UzZ1QUFaQnhBNjh6TGxDUU5VelpSc0pSZ0RXTmprb0lOTUlHRkFTZDFYeUZBbmdoWmQKS0NQcWV2YmZFUkdsMWlCaWJNcEE1SmVJdk9Gcng3ckRZS0h2UlFJREFRQUJBb0lCQUZqT25hN2dRcXl6dkR5OQpGbEZtTU9tTDJaZmM1d20vakRvSnNNcktoR0lSM2xHcmxYa25iRnRScDJyRTNHZzFROHB2NjFoN0NKZnB0U0g1CnlENmFxWUMzaGkxaWtqQTFIRmNQclBZWWhLc1ViaGZORDBRcG9hNUNLaHBtVUlKNFF6M20vQ1A5SmFLSGlUUEMKb1FWN3pFbVI5a20vYUwxN2tRZ0RrUVBjNi9Xb25WMGM0NEZMbWZVS2RXcHZKc2V1YjZKbHF5SkI2Mkx5WU92eQp4NEcyTlNrVDdOMzJtMEFkS2VoazhJaFk0SnlITDFrS3ZzUTE3Q20rRDJsUUFDanhURm1SOGR6Z2ZSYms1Y3RWCll2RzEvc2VpU2xVSi9MaFdSSlhBam12WnhGT08xK2RrRWg3eEFLVzkxWDlXbnE4czRxWTlnSnBiRXNSZ2NidEwKSUlTRzFKMENnWUVBOTNIejJpU3BCQ0NsZit4MGZwd0xiZzdpV1ZXdGpIUE1kcStqRk9yV01oZ3BRTFhQeTFBbgpndmRZSHdpSWk5VERocEYrVStKQnRNNlAxdzNlZ21sd3dnS3lmd3p6a3hXMGY3aDZkelQ5aFpoOXArcXVYbUxlCkVsMlBQVHUyUGZXMWxCakp0NmJFT1gzdG14blpER0JDU3YrUU5tR25WT3RzY1NMbWFlQTZIOXNDZ1lFQThsdCsKSDlWSzhpWVEzRmo0VUdaUlNvcDc0MXloMURtV1Z2ekJ3SHZWSUZadGxsOGhwdWpnanF0bUppdDdDUGI2QjUrQQpFWDZNaVl4dnVwaFpRNFhKZXYzci82V3k2dWljbkNaRUtBMEl4aWhiRWkvYThJMk5XaktMUGpudWw3RUsxUFpVCk5FdmxOcHlneXIwZHhKV1R1RW9qODM1NjVEU3J2andpR0NodFoxOENnWUVBaDI3SlJ4WlZvN3F5bXFleXd6RnAKV0IyeGFhL3BRenlHSmxmUGJMMXo2d3NxV1E2cDR0L0dJSHA4c3MrYTNOM2cvcUJYZ2xZT0hJWUtXR3h3NHZRUApFVUVrclVGTGQ2K2prVnhKTzBHM21RMXppUnA3d1pGZmRySGFtbXM2UGdOa0ZPRFVWejVobkEzK3BLdXJEb2tJCi83K05FUmExM1ZiVmpiN0tXaHl0ODQwQ2dZQUNxcEVEcHFRUmIrdkZrTkVDaVcyaGhVNkJuTlpHOEc4Lys3M2gKOFRyU0JVRmxZeHlLcW9zMTVwclVGcXhlMStDK1Rybm85MXh5Y3ZJVHVuTlk4OUxZb0l5RkhueU9hd3EyQ1JHOAo0dy9TcGtVQ09UYU9hUEJDS3NZdlpCSEU1M1M0RFJHMkZaT3EreVFsdHRqcC9iOUhTc0dFZjBLNDJmOTlzMG1vCnZHRWZ2d0tCZ1FDTmwyWmh0QzdOODNNajMvS1lvNzhJaGp6ai8vTWpPYWdVVStsRUJGb1VLY2dHc0UrZ1pnQnoKRTVoK0lGeWhVZjMreVFsRGU2SWxIOXhPQ1JRdzFxNjhzb2F6SkdTUFpDQzdXMXEyc3FzZnlOQkRpV3R6dGVTaQo5YXBYbVZKVXNXdm1xZ0tNdVVqbUJmam9LUUpWbEl0ek5GbVQzRzkvOHplSnIrWVNnaVRwTEE9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
 ---
 # Source: chaos-mesh/templates/dns-configmap.yaml
 # Copyright 2021 Chaos Mesh Authors.
@@ -144,12 +144,12 @@ metadata:
   name: dns-server-config
   namespace: "chaos-mesh"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaos-dns-server
 data:
   Corefile: |
@@ -165,6 +165,7 @@ data:
             ttl 30
             grpcport 9288
         }
+        prometheus :9153
         forward . /etc/resolv.conf {
             max_concurrent 1000
         }
@@ -181,12 +182,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: chaos-mesh-chaos-dashboard-cluster-level
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaos-dashboard
 rules:
   # chaos-dashboard could list namespace for selector hints
@@ -211,12 +212,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: chaos-mesh-chaos-dashboard-target-namespace
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaos-dashboard
 rules:
   # chaos dashboard could list pods for selector hints
@@ -250,12 +251,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: chaos-mesh-chaos-controller-manager-target-namespace
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: controller-manager
 rules:
   - apiGroups: [ "" ]
@@ -294,12 +295,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: chaos-mesh-chaos-controller-manager-cluster-level
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: controller-manager
 rules:
   - apiGroups: [ "" ]
@@ -322,12 +323,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: chaos-mesh-chaos-dns-server-target-namespace
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: dns-server
 rules:
   - apiGroups: [ "" ]
@@ -347,12 +348,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: chaos-mesh-chaos-dns-server-cluster-level
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: dns-server
 rules:
   - apiGroups: [ "" ]
@@ -370,12 +371,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: chaos-mesh-chaos-dashboard-cluster-level
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaos-dashboard
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -395,12 +396,12 @@ metadata:
   # TODO: notice that the targetNamespace is still defined as .Values.controllerManager.targetNamespace, .Values.targetNamespace would be better.
   namespace: "chaos-mesh"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaos-dashboard
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -418,12 +419,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: chaos-mesh-chaos-controller-manager-cluster-level
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: controller-manager
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -441,12 +442,12 @@ metadata:
   name: chaos-mesh-chaos-controller-manager-target-namespace
   namespace: "chaos-mesh"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: controller-manager
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -464,12 +465,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: chaos-mesh-chaos-dns-server-cluster-level
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: dns-server
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -487,12 +488,12 @@ metadata:
   name: chaos-mesh-chaos-dns-server-target-namespace
   namespace: 
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: dns-server
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -510,12 +511,12 @@ metadata:
   name: chaos-mesh-chaos-controller-manager-control-plane
   namespace: "chaos-mesh"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: controller-manager
 rules:
   - apiGroups: [ "" ]
@@ -542,12 +543,12 @@ metadata:
   name: chaos-mesh-chaos-dns-server-control-plane
   namespace: "chaos-mesh"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: dns-server
 rules:
   - apiGroups: [ "" ]
@@ -562,12 +563,12 @@ metadata:
   name: chaos-mesh-chaos-controller-manager-control-plane
   namespace: "chaos-mesh"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: controller-manager
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -586,12 +587,12 @@ metadata:
   name: chaos-mesh-chaos-dns-server-control-plane
   namespace: "chaos-mesh"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: dns-server
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -626,12 +627,12 @@ metadata:
     prometheus.io/scrape: "true"
     prometheus.io/port: "31766"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaos-daemon
 spec:
   clusterIP: None
@@ -660,7 +661,7 @@ metadata:
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/component: chaos-dashboard
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
   annotations:
     prometheus.io/scrape: "true"
     prometheus.io/port: "2334"
@@ -704,12 +705,12 @@ metadata:
     prometheus.io/scrape: "true"
     prometheus.io/port: "10080"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: controller-manager
 spec:
   type: ClusterIP
@@ -759,12 +760,12 @@ metadata:
     prometheus.io/port: "9153"
     prometheus.io/scrape: "true"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: dns-server
 spec:
   selector:
@@ -810,12 +811,12 @@ metadata:
   name: chaos-daemon
   labels:
     app.kubernetes.io/component: chaos-daemon
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
 spec:
   selector:
     matchLabels:
@@ -825,21 +826,21 @@ spec:
   template:
     metadata:
       labels:
-        helm.sh/chart: chaos-mesh-2.6.2
+        helm.sh/chart: chaos-mesh-2.6.3
         app.kubernetes.io/name: chaos-mesh
         app.kubernetes.io/instance: chaos-mesh
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: chaos-mesh
-        app.kubernetes.io/version: 2.6.2
+        app.kubernetes.io/version: 2.6.3
         app.kubernetes.io/component: chaos-daemon
       annotations:
-        rollme: "umUN3"
+        rollme: "eYt8e"
     spec:
       serviceAccountName: chaos-daemon
       hostPID: true
       containers:
         - name: chaos-daemon
-          image: ghcr.io/chaos-mesh/chaos-daemon:v2.6.2
+          image: ghcr.io/chaos-mesh/chaos-daemon:v2.6.3
           imagePullPolicy: IfNotPresent
           command:
             - /usr/local/bin/chaos-daemon
@@ -916,12 +917,12 @@ metadata:
   namespace: "chaos-mesh"
   name: chaos-dashboard
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaos-dashboard
 spec:
   replicas: 1
@@ -938,12 +939,12 @@ spec:
   template:
     metadata:
       labels:
-        helm.sh/chart: chaos-mesh-2.6.2
+        helm.sh/chart: chaos-mesh-2.6.3
         app.kubernetes.io/name: chaos-mesh
         app.kubernetes.io/instance: chaos-mesh
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: chaos-mesh
-        app.kubernetes.io/version: 2.6.2
+        app.kubernetes.io/version: 2.6.3
         app.kubernetes.io/component: chaos-dashboard
       annotations:
     spec:
@@ -952,7 +953,7 @@ spec:
       serviceAccountName: chaos-dashboard
       containers:
         - name: chaos-dashboard
-          image: ghcr.io/chaos-mesh/chaos-dashboard:v2.6.2
+          image: ghcr.io/chaos-mesh/chaos-dashboard:v2.6.3
           imagePullPolicy: IfNotPresent
           resources:
             limits: {}
@@ -1041,12 +1042,12 @@ metadata:
   namespace: "chaos-mesh"
   name: chaos-controller-manager
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: controller-manager
 spec:
   replicas: 3
@@ -1058,22 +1059,22 @@ spec:
   template:
     metadata:
       labels:
-        helm.sh/chart: chaos-mesh-2.6.2
+        helm.sh/chart: chaos-mesh-2.6.3
         app.kubernetes.io/name: chaos-mesh
         app.kubernetes.io/instance: chaos-mesh
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: chaos-mesh
-        app.kubernetes.io/version: 2.6.2
+        app.kubernetes.io/version: 2.6.3
         app.kubernetes.io/component: controller-manager
       annotations:
-        rollme: "JqEXP"
+        rollme: "5LkbZ"
     spec:
       securityContext:
             {}
       serviceAccountName: chaos-controller-manager
       containers:
       - name: chaos-mesh
-        image: ghcr.io/chaos-mesh/chaos-mesh:v2.6.2
+        image: ghcr.io/chaos-mesh/chaos-mesh:v2.6.3
         imagePullPolicy: IfNotPresent
         resources:
             limits: {}
@@ -1206,12 +1207,12 @@ metadata:
   name: chaos-dns-server
   namespace: "chaos-mesh"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaos-dns-server
 spec:
   replicas: 1
@@ -1227,12 +1228,12 @@ spec:
   template:
     metadata:
       labels:
-        helm.sh/chart: chaos-mesh-2.6.2
+        helm.sh/chart: chaos-mesh-2.6.3
         app.kubernetes.io/name: chaos-mesh
         app.kubernetes.io/instance: chaos-mesh
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: chaos-mesh
-        app.kubernetes.io/version: 2.6.2
+        app.kubernetes.io/version: 2.6.3
         app.kubernetes.io/component: chaos-dns-server
     spec:
       serviceAccountName: chaos-dns-server
@@ -1457,12 +1458,12 @@ metadata:
   name: chaos-mesh-ca
   namespace: "chaos-mesh"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaos-mesh-ca
 spec:
   duration: 43800h0m0s #5year
@@ -1481,12 +1482,12 @@ metadata:
   name: chaos-mesh-cert
   namespace: "chaos-mesh"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaos-mesh-cert
 spec:
   duration: 43800h #5year
@@ -1508,12 +1509,12 @@ metadata:
   name: chaos-daemon-client-cert
   namespace: "chaos-mesh"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaos-daemon-client-cert
 spec:
   duration: 43800h0m0s #5year
@@ -1533,12 +1534,12 @@ metadata:
   name: chaos-daemon-cert
   namespace: "chaos-mesh"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaos-daemontcert
 spec:
   duration: 43800h0m0s #5year
@@ -1558,12 +1559,12 @@ metadata:
   name: chaos-mesh-selfsigned
   namespace: "chaos-mesh"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaos-mesh-selfsigned
 spec:
   selfSigned: {}
@@ -1575,12 +1576,12 @@ metadata:
   name: chaos-mesh-ca
   namespace: "chaos-mesh"
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: chaos-mesh-ca
 spec:
   ca:
@@ -1606,12 +1607,12 @@ kind: MutatingWebhookConfiguration
 metadata:
   name: chaos-mesh-mutation
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: admission-webhook
   annotations:
     cert-manager.io/inject-ca-from: "chaos-mesh/chaos-mesh-cert"
@@ -2036,12 +2037,12 @@ kind: ValidatingWebhookConfiguration
 metadata:
   name: chaos-mesh-validation
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: admission-webhook
   annotations:
     cert-manager.io/inject-ca-from: "chaos-mesh/chaos-mesh-cert"
@@ -2452,12 +2453,12 @@ kind: ValidatingWebhookConfiguration
 metadata:
   name: chaos-mesh-validation-auth
   labels:
-    helm.sh/chart: chaos-mesh-2.6.2
+    helm.sh/chart: chaos-mesh-2.6.3
     app.kubernetes.io/name: chaos-mesh
     app.kubernetes.io/instance: chaos-mesh
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: chaos-mesh
-    app.kubernetes.io/version: 2.6.2
+    app.kubernetes.io/version: 2.6.3
     app.kubernetes.io/component: admission-webhook
   annotations:
     cert-manager.io/inject-ca-from: "chaos-mesh/chaos-mesh-cert"
