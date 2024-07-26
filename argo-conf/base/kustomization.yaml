@@ -13,7 +13,7 @@ resources:
 - linkerd.yaml
 - linkerd-crd.yaml
 - linkerd-viz.yaml
-- minio.yaml
+# - minio.yaml # postpone for first apply in order to regenerate sealed-secret
 - namespaces.yaml
 - openebs.yaml
 - openebs-crd.yaml
