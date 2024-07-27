@@ -1,0 +1,27 @@
+---
+# Namespace for prometheus/monitoring
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: monitoring
+
+---
+# Namespace for cert-manager
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cert-manager
+
+---
+# Namespace for openebs
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openebs
+
+---
+# Namespace for chaos-mesh
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: chaos-mesh
