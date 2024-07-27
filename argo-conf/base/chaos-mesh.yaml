@@ -10,10 +10,26 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "4"
 spec:
+  # The project the application belongs to.
   project: default
+
+  # Source of the application manifests
   source:
-    repoURL: https://github.com/hanapedia/lab-cluster-apps
-    targetRevision: HEAD
-    path: chaos-mesh/chaos-mesh/overlays/containerd
+    chart: chaos-mesh
+    repoURL: https://charts.chaos-mesh.org
+    targetRevision: 2.6.3
+    helm:
+      releaseName: chaos-mesh
+      valuesObject:
+        chaosDaemon:
+          runtime: containerd
+          socketPath: /run/containerd/containerd.sock
+          # runtime: crio
+          # socketPath: /var/run/crio/crio.sock
+        webhook:
+          certManager:
+            # Setup the webhook using cert-manager
+            enabled: true
   destination:
-    server: https://kubernetes.default.svc
+    server: "https://kubernetes.default.svc"
+    namespace: chaos-mesh

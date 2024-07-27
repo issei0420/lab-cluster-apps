@@ -1,4 +1,0 @@
----
-- op: replace
-  path: /apiVersion
-  value: cert-manager.io/v1
