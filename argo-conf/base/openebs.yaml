@@ -26,9 +26,9 @@ spec:
     targetRevision: 4.1.0
     helm:
       releaseName: openebs
-      valuesObject:
-        mayastor:
-          enabled: false
+      parameters:
+      - name: "engines.replicated.mayastor.enabled"
+        value: "false"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: openebs
