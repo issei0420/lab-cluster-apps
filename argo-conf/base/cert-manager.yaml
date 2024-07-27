@@ -8,13 +8,21 @@ metadata:
   labels:
     name: cert-manager
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
+  # The project the application belongs to.
   project: default
+
+  # Source of the application manifests
   source:
-    repoURL: https://github.com/hanapedia/lab-cluster-apps
-    targetRevision: HEAD
-    path: cert-manager/cert-manager/base
+    chart: cert-manager
+    repoURL: https://charts.jetstack.io
+    targetRevision: v1.15.1
+    helm:
+      releaseName: cert-manager
+      valuesObject:
+        crds:
+          enabled: true
   destination:
     server: "https://kubernetes.default.svc"
     namespace: cert-manager

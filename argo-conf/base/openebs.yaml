@@ -21,9 +21,11 @@ spec:
 
   # Source of the application manifests
   source:
-    repoURL: https://github.com/hanapedia/lab-cluster-apps
-    targetRevision: HEAD
-    path: openebs/openebs/base
+    chart: openebs
+    repoURL: https://openebs.github.io/openebs
+    targetRevision: 4.1.0
+    helm:
+      releaseName: openebs
   destination:
-    # cluster API URL
-    server: https://kubernetes.default.svc
+    server: "https://kubernetes.default.svc"
+    namespace: openebs
