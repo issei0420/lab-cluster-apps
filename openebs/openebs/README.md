@@ -10,5 +10,7 @@ helm repo add openebs https://openebs.github.io/openebs
 helm repo update
 
 # generate template
-helm template openebs --namespace openebs openebs/openebs --create-namespace --values base/values.yaml > base/manifests.yaml
+helm template openebs --namespace openebs openebs/openebs --create-namespace --values base/values.yaml \
+    | yq e 'del(.kind == "CustomResourceDefinition")' \
+    > base/manifests.yaml
 ```
