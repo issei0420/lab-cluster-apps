@@ -4,7 +4,6 @@ kind: Kustomization
 
 resources:
 - cert-manager.yaml
-- cert-manager-crd.yaml
 - chaos-mesh.yaml
 - chaos-mesh-crd.yaml
 - grafana.yaml
