@@ -8,7 +8,7 @@ resources:
 - grafana.yaml
 - kafka-crd.yaml
 - kafka-operator.yaml
-# - minio.yaml # postpone for first apply in order to regenerate sealed-secret
+- minio.yaml # postpone for first apply in order to regenerate sealed-secret
 - namespaces.yaml
 - openebs.yaml
 - otel-collector.yaml
