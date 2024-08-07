@@ -20,7 +20,7 @@ spec:
       targetRevision: 5.4.0
       helm:
         releaseName: mimir
-        valuesFiles:
+        valueFiles:
           - $values/mimir/values.yaml
           - $values/mimir/capacity.yaml
     - repoURL: https://github.com/hanapedia/lab-cluster-apps
