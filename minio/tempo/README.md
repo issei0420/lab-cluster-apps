@@ -4,6 +4,7 @@
 ```sh
 # generate secrets from files
 k create secret generic minio-tempo \
+  --namespace monitoring \
   --from-file=rootUser=secrets/rootUser \
   --from-file=rootPassword=secrets/rootPassword \
   --dry-run=client -o yaml > secrets/raw-admin-secret.yaml
