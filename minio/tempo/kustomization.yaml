@@ -8,4 +8,3 @@ namePrefix: tempo-
 
 resources:
   - manifests.yaml
-  - sealed-admin-secret.yaml
