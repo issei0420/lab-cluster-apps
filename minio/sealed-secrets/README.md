@@ -9,10 +9,10 @@ k create secret generic minio-tempo \
   --namespace monitoring \
   --from-file=rootUser=secrets/rootUser \
   --from-file=rootPassword=secrets/rootPassword \
-  --dry-run=client -o yaml > secrets/minio-raw-admin-secret.yaml
+  --dry-run=client -o yaml > secrets/tempo-raw-admin-secret.yaml
 
 # seal the secrets
-kubeseal -o yaml < secrets/minio-raw-admin-secret.yaml > tempo-sealed-admin-secret.yaml
+kubeseal -o yaml < secrets/tempo-raw-admin-secret.yaml > tempo-sealed-admin-secret.yaml
 
 # Mimir
 # generate secrets from files for mimir
@@ -23,7 +23,7 @@ k create secret generic minio-mimir \
   --dry-run=client -o yaml > secrets/mimir-raw-admin-secret.yaml
 
 # seal the secrets
-kubeseal -o yaml < secrets/minio-raw-admin-secret.yaml > mimir-sealed-admin-secret.yaml
+kubeseal -o yaml < secrets/mimir-raw-admin-secret.yaml > mimir-sealed-admin-secret.yaml
 
 ```
 
