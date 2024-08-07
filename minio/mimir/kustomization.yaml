@@ -4,7 +4,6 @@ kind: Kustomization
 
 namespace: monitoring
 
-namePrefix: mimir-
-
 resources:
   - manifests.yaml
+  - mimir-sealed-admin-secret.yaml

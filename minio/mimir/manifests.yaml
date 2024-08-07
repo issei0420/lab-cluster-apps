@@ -9,7 +9,7 @@ metadata:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: minio
+  name: minio-mimir
   labels:
     app: minio
     chart: minio-5.2.0
@@ -410,7 +410,7 @@ data:
 apiVersion: v1
 kind: Service
 metadata:
-  name: minio-console
+  name: minio-mimir-console
   labels:
     app: minio
     chart: minio-5.2.0
@@ -431,7 +431,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: minio
+  name: minio-mimir
   labels:
     app: minio
     chart: minio-5.2.0
@@ -453,7 +453,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: minio-svc
+  name: minio-mimir-svc
   labels:
     app: minio
     chart: minio-5.2.0
@@ -475,7 +475,7 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: minio
+  name: minio-mimir
   labels:
     app: minio
     chart: minio-5.2.0
@@ -485,7 +485,7 @@ spec:
   updateStrategy:
     type: RollingUpdate
   podManagementPolicy: "Parallel"
-  serviceName: minio-svc
+  serviceName: minio-mimir-svc
   replicas: 2
   selector:
     matchLabels:
@@ -493,13 +493,13 @@ spec:
       release: minio
   template:
     metadata:
-      name: minio
+      name: minio-mimir
       labels:
         app: minio
         release: minio
       annotations:
         checksum/secrets: 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
-        checksum/config: 75fcc235faa23e1f92fd4de175f2ac4d9c84edbd38602ea42c59594045e0ab13
+        checksum/config: bbc38b6cbc69b5bba4be3be86d6acfbb10f85fa5883153c0df3119cbdabf5f56
     spec:
       securityContext:
         runAsUser: 1000
@@ -514,7 +514,7 @@ spec:
           command: [
             "/bin/sh",
             "-ce",
-            "/usr/bin/docker-entrypoint.sh minio server http://minio-{0...1}.minio-svc.monitoring.svc.cluster.local/export -S /etc/minio/certs/ --address :9000 --console-address :9001"
+            "/usr/bin/docker-entrypoint.sh minio server http://minio-mimir-{0...1}.minio-mimir-svc.monitoring.svc.cluster.local/export -S /etc/minio/certs/ --address :9000 --console-address :9001"
           ]
           volumeMounts:
             - name: export
@@ -562,28 +562,28 @@ spec:
 apiVersion: monitoring.coreos.com/v1
 kind: Probe
 metadata:
-  name: minio-cluster
+  name: minio-mimir-cluster
   labels:
     app: minio
     chart: minio-5.2.0
     release: minio
     heritage: Helm
 spec:
-  jobName: minio
+  jobName: minio-mimir
   prober:
-    url: minio.monitoring:9000
+    url: minio-mimir.monitoring:9000
     path: /minio/v2/metrics/cluster
     scheme: http
   targets:
     staticConfig:
       static:
-      - minio.monitoring
+      - minio-mimir.monitoring
 ---
 # Source: minio/templates/post-job.yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: minio-post-job
+  name: minio-mimir-post-job
   labels:
     app: minio-post-job
     chart: minio-5.2.0
@@ -609,7 +609,7 @@ spec:
           projected:
             sources:
               - configMap:
-                  name: minio
+                  name: minio-mimir
               - secret:
                   name: minio-mimir
       serviceAccountName: minio-sa
@@ -620,7 +620,7 @@ spec:
           command: [ "/bin/sh", "/config/initialize" ]
           env:
             - name: MINIO_ENDPOINT
-              value: minio
+              value: minio-mimir
             - name: MINIO_PORT
               value: "9000"
           volumeMounts:
@@ -639,7 +639,7 @@ spec:
           command: [ "/bin/sh", "/config/add-user" ]
           env:
             - name: MINIO_ENDPOINT
-              value: minio
+              value: minio-mimir
             - name: MINIO_PORT
               value: "9000"
           volumeMounts:
