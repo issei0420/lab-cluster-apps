@@ -1,0 +1,34 @@
+global:
+  # -- Common source of environment injections to add to all pods directly managed by this chart.
+  # scope: admin-api, alertmanager, compactor, continuous-test, distributor, gateway, graphite-proxy, ingester, memcached, nginx, overrides-exporter, querier, query-frontend, query-scheduler, ruler, store-gateway, smoke-test, tokengen
+  extraEnv:
+  - name: MINIO_ACCESS_KEY
+    valueFrom:
+      secretKeyRef:
+        name: minio-mimir
+        key: rootUser
+  - name: MINIO_SECRET_KEY
+    valueFrom:
+      secretKeyRef:
+        name: minio-mimir
+        key: rootPassword
+
+mimir:
+  structuredConfig:
+    common:
+      storage:
+        backend: s3
+        s3:
+          endpoint: minio-mimir.monitoring.svc:9000
+          secret_access_key: "${MINIO_SECRET_KEY}" # This is a secret injected via an environment variable
+          access_key_id: "${MINIO_ACCESS_KEY}" # This is a secret injected via an environment variable
+
+    blocks_storage:
+      s3:
+        bucket_name: mimir-blocks
+    alertmanager_storage:
+      s3:
+        bucket_name: mimir-alertmanager
+    ruler_storage:
+      s3:
+        bucket_name: mimir-ruler

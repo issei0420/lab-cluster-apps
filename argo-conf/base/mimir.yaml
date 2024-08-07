@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mimir
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    name: mimir
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  # The project the application belongs to.
+  project: default
+
+  # Source of the application manifests
+  source:
+    - chart: mimir-distributed
+      repoURL: https://grafana.github.io/helm-charts
+      targetRevision: 5.4.0
+      helm:
+        releaseName: mimir
+        valuesFiles:
+          - $values/mimir/values.yaml
+          - $values/mimir/capacity.yaml
+    - repoURL: https://github.com/hanapedia/lab-cluster-apps
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: cert-manager

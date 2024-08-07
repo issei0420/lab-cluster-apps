@@ -10,6 +10,7 @@ resources:
 - kafka-operator.yaml
 - minio-tempo.yaml
 - minio-mimir.yaml
+- mimir.yaml
 - namespaces.yaml
 - openebs.yaml
 - openebs-sc.yaml
