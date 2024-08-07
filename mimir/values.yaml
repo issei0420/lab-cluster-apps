@@ -1,4 +1,5 @@
 global:
+  dnsService: coredns
   # -- Common source of environment injections to add to all pods directly managed by this chart.
   # scope: admin-api, alertmanager, compactor, continuous-test, distributor, gateway, graphite-proxy, ingester, memcached, nginx, overrides-exporter, querier, query-frontend, query-scheduler, ruler, store-gateway, smoke-test, tokengen
   extraEnv:
