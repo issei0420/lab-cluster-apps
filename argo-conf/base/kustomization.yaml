@@ -8,6 +8,7 @@ resources:
 - grafana.yaml
 - kafka-crd.yaml
 - kafka-operator.yaml
+- minio-secrets.yaml.yaml
 - minio-tempo.yaml
 - minio-mimir.yaml
 - namespaces.yaml
