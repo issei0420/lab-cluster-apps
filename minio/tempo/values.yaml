@@ -18,7 +18,7 @@ mode: distributed ## other supported values are "standalone"
 ## All mentioned variables will be ignored in values file.
 ## .data.rootUser and .data.rootPassword are mandatory,
 ## others depend on enabled status of corresponding sections.
-# existingSecret: "minio"
+existingSecret: "minio-tempo"
 
 # Number of MinIO containers running
 replicas: 2

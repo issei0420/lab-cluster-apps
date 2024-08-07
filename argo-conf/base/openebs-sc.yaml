@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: minio
+  name: openebs-sc
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   labels:
-    name: minio
+    name: openebs-sc
   annotations:
-    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   project: default
   source:
     repoURL: https://github.com/hanapedia/lab-cluster-apps
     targetRevision: HEAD
-    path: minio/base
+    path: openebs/storage-classes
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: monitoring
+    namespace: openebs

@@ -5,21 +5,6 @@ kind: ServiceAccount
 metadata:
   name: "minio-sa"
 ---
-# Source: minio/templates/secrets.yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: minio
-  labels:
-    app: minio
-    chart: minio-5.2.0
-    release: minio
-    heritage: Helm
-type: Opaque
-data:
-  rootUser: "VEZ5MEtTcmc4b1Vxb3N6M2dnSTI="
-  rootPassword: "cVRCaHR0akdIQW0xQVh5eHMwTWFObXppOVdSTHZ1OXVSYUxYZVFkNg=="
----
 # Source: minio/templates/configmap.yaml
 apiVersion: v1
 kind: ConfigMap
@@ -141,7 +126,7 @@ data:
     
     
     # Create the buckets
-    createBucket tempo "none" false false false
+    createBucket mimir "none" false false false
     
   add-user: |-
     #!/bin/sh
@@ -513,8 +498,8 @@ spec:
         app: minio
         release: minio
       annotations:
-        checksum/secrets: fc3cb3be4fa5d47a6c84d54a721c897836cb8ebbe7064463bbad55e00f0a2ee7
-        checksum/config: 7b84adb94e4fd9a6b35c1466a69e20d5b853687996fdd4cbaa0ceddefcc2626a
+        checksum/secrets: 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
+        checksum/config: 75fcc235faa23e1f92fd4de175f2ac4d9c84edbd38602ea42c59594045e0ab13
     spec:
       securityContext:
         runAsUser: 1000
@@ -543,24 +528,24 @@ spec:
             - name: MINIO_ROOT_USER
               valueFrom:
                 secretKeyRef:
-                  name: minio
+                  name: minio-mimir
                   key: rootUser
             - name: MINIO_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: minio
+                  name: minio-mimir
                   key: rootPassword
             - name: MINIO_PROMETHEUS_AUTH_TYPE
               value: "public"
           resources:
             requests:
-              memory: 2Gi
+              memory: 8Gi
           securityContext:
             readOnlyRootFilesystem: false      
       volumes:
         - name: minio-user
           secret:
-            secretName: minio        
+            secretName: minio-mimir        
   volumeClaimTemplates:
     - apiVersion: v1
       kind: PersistentVolumeClaim
@@ -568,10 +553,10 @@ spec:
         name: export
       spec:
         accessModes: [ "ReadWriteOnce" ]
-        storageClassName: openebs-hostpath
+        storageClassName: openebs-hostpath-hdd
         resources:
           requests:
-            storage: 10Gi
+            storage: 1Ti
 ---
 # Source: minio/templates/servicemonitor.yaml
 apiVersion: monitoring.coreos.com/v1
@@ -626,7 +611,7 @@ spec:
               - configMap:
                   name: minio
               - secret:
-                  name: minio
+                  name: minio-mimir
       serviceAccountName: minio-sa
       containers:
         - name: minio-make-bucket

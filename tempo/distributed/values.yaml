@@ -13,12 +13,12 @@ ingester:
   - name: MINIO_ACCESS_KEY
     valueFrom:
       secretKeyRef:
-        name: minio
+        name: minio-tempo
         key: rootUser
   - name: MINIO_SECRET_KEY
     valueFrom:
       secretKeyRef:
-        name: minio
+        name: minio-tempo
         key: rootPassword
 
 # Configuration for the metrics-generator
@@ -40,12 +40,12 @@ compactor:
   - name: MINIO_ACCESS_KEY
     valueFrom:
       secretKeyRef:
-        name: minio
+        name: minio-tempo
         key: rootUser
   - name: MINIO_SECRET_KEY
     valueFrom:
       secretKeyRef:
-        name: minio
+        name: minio-tempo
         key: rootPassword
 
 # Configuration for the querier
@@ -57,12 +57,12 @@ querier:
   - name: MINIO_ACCESS_KEY
     valueFrom:
       secretKeyRef:
-        name: minio
+        name: minio-tempo
         key: rootUser
   - name: MINIO_SECRET_KEY
     valueFrom:
       secretKeyRef:
-        name: minio
+        name: minio-tempo
         key: rootPassword
 
 # Configuration for the query-frontend
@@ -75,12 +75,12 @@ queryFrontend:
   - name: MINIO_ACCESS_KEY
     valueFrom:
       secretKeyRef:
-        name: minio
+        name: minio-tempo
         key: rootUser
   - name: MINIO_SECRET_KEY
     valueFrom:
       secretKeyRef:
-        name: minio
+        name: minio-tempo
         key: rootPassword
 
 traces:
@@ -160,12 +160,12 @@ memcached:
   - name: MINIO_ACCESS_KEY
     valueFrom:
       secretKeyRef:
-        name: minio
+        name: minio-tempo
         key: rootUser
   - name: MINIO_SECRET_KEY
     valueFrom:
       secretKeyRef:
-        name: minio
+        name: minio-tempo
         key: rootPassword
 
 memcachedExporter:
