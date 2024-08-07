@@ -18,7 +18,6 @@ resources:
 - otel-crd.yaml
 - otel-operator.yaml
 - prometheus.yaml
-- prometheus-crd.yaml
 - registry.yaml # postpone for first apply in order to regenerate sealed-secret
 - sealed-secret.yaml
 - sealed-secret-crd.yaml
