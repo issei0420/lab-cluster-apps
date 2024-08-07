@@ -22,6 +22,7 @@ mimir:
           endpoint: minio-mimir.monitoring.svc:9000
           secret_access_key: "${MINIO_SECRET_KEY}" # This is a secret injected via an environment variable
           access_key_id: "${MINIO_ACCESS_KEY}" # This is a secret injected via an environment variable
+          insecure: true
 
     blocks_storage:
       s3:

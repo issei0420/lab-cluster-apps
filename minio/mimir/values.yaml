@@ -102,7 +102,31 @@ svcaccts: []
 ##
 buckets:
   #   # Name of the bucket
-  - name: mimir
+  - name: mimir-blocks
+    # Policy to be set on the
+    # bucket [none|download|upload|public]
+    policy: none
+    # Purge if bucket exists already
+    purge: false
+    # set versioning for
+    # bucket [true|false]
+    versioning: false
+    # set objectlocking for
+    # bucket [true|false] NOTE: versioning is enabled by default if you use locking
+    objectlocking: false
+  - name: mimir-alertmanager
+    # Policy to be set on the
+    # bucket [none|download|upload|public]
+    policy: none
+    # Purge if bucket exists already
+    purge: false
+    # set versioning for
+    # bucket [true|false]
+    versioning: false
+    # set objectlocking for
+    # bucket [true|false] NOTE: versioning is enabled by default if you use locking
+    objectlocking: false
+  - name: mimir-ruler
     # Policy to be set on the
     # bucket [none|download|upload|public]
     policy: none

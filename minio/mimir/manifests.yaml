@@ -126,7 +126,9 @@ data:
     
     
     # Create the buckets
-    createBucket mimir "none" false false false
+    createBucket mimir-blocks "none" false false false
+    createBucket mimir-alertmanager "none" false false false
+    createBucket mimir-ruler "none" false false false
     
   add-user: |-
     #!/bin/sh
@@ -499,7 +501,7 @@ spec:
         release: minio
       annotations:
         checksum/secrets: 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
-        checksum/config: bbc38b6cbc69b5bba4be3be86d6acfbb10f85fa5883153c0df3119cbdabf5f56
+        checksum/config: 287e5ef6938af7b01a2d803fe9573dd8cfebab61c9606cb9bb972d963fc2054b
     spec:
       securityContext:
         runAsUser: 1000

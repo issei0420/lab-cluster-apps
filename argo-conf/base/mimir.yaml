@@ -28,4 +28,4 @@ spec:
       ref: values
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: cert-manager
+    namespace: monitoring
