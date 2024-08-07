@@ -13,6 +13,10 @@ spec:
   # The project the application belongs to.
   project: default
 
+  # Use server-side apply since crd is too big
+  syncPolicy:
+    syncOptions:
+    - ServerSideApply=true
   # Source of the application manifests
   sources:
     - chart: kube-prometheus-stack
