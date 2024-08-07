@@ -23,6 +23,7 @@ spec:
         valueFiles:
           - $values/mimir/values.yaml
           - $values/mimir/capacity.yaml
+          - $values/mimir/zones.yaml
     - repoURL: https://github.com/hanapedia/lab-cluster-apps
       targetRevision: HEAD
       ref: values

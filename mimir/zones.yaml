@@ -1,0 +1,23 @@
+ingester:
+  zoneAwareReplication:
+    enabled: true
+    topologyKey: kubernetes.io/hostname
+    zones:
+      - name: zone-lab1
+        nodeSelector:
+          topology.kubernetes.io/zone: lab1
+      - name: zone-lab2
+        nodeSelector:
+          topology.kubernetes.io/zone: lab2
+
+store_gateway:
+  zoneAwareReplication:
+    enabled: true
+    topologyKey: kubernetes.io/hostname
+    zones:
+      - name: zone-lab1
+        nodeSelector:
+          topology.kubernetes.io/zone: lab1
+      - name: zone-lab2
+        nodeSelector:
+          topology.kubernetes.io/zone: lab2
