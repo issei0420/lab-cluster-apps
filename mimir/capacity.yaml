@@ -153,7 +153,7 @@ store_gateway:
   persistentVolume:
     size: 10Gi
     storageClass: "openebs-hostpath"
-  replicas: 3
+  replicas: 2
   resources:
     limits:
       memory: 2.1Gi
