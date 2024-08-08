@@ -27,7 +27,7 @@ alertmanager:
   persistentVolume:
     enabled: true
     storageClass: "openebs-hostpath"
-  replicas: 2
+  replicas: 1
   resources:
     limits:
       memory: 1.4Gi
@@ -49,7 +49,7 @@ compactor:
       memory: 1.5Gi
 
 distributor:
-  replicas: 2
+  replicas: 1
   resources:
     limits:
       memory: 5.7Gi
@@ -61,54 +61,53 @@ ingester:
   persistentVolume:
     size: 20Gi
     storageClass: "openebs-hostpath"
-  replicas: 2
+  replicas: 1
   resources:
     limits:
       memory: 12Gi
     requests:
       cpu: 3.5
       memory: 8Gi
-  topologySpreadConstraints: {}
-  affinity:
-    podAntiAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        - labelSelector:
-            matchExpressions:
-              - key: target # support for enterprise.legacyLabels
-                operator: In
-                values:
-                  - ingester
-          topologyKey: 'kubernetes.io/hostname'
-
-        - labelSelector:
-            matchExpressions:
-              - key: app.kubernetes.io/component
-                operator: In
-                values:
-                  - ingester
-          topologyKey: 'kubernetes.io/hostname'
-
-  zoneAwareReplication:
-    topologyKey: 'kubernetes.io/hostname'
+  # topologySpreadConstraints: {}
+  # affinity:
+  #   podAntiAffinity:
+  #     requiredDuringSchedulingIgnoredDuringExecution:
+  #       - labelSelector:
+  #           matchExpressions:
+  #             - key: target # support for enterprise.legacyLabels
+  #               operator: In
+  #               values:
+  #                 - ingester
+  #         topologyKey: 'kubernetes.io/hostname'
+  #
+  #       - labelSelector:
+  #           matchExpressions:
+  #             - key: app.kubernetes.io/component
+  #               operator: In
+  #               values:
+  #                 - ingester
+  #         topologyKey: 'kubernetes.io/hostname'
+  # zoneAwareReplication:
+  #   topologyKey: 'kubernetes.io/hostname'
 
 admin-cache:
   enabled: true
-  replicas: 2
+  replicas: 1
 
 chunks-cache:
   enabled: true
-  replicas: 2
+  replicas: 1
 
 index-cache:
   enabled: true
-  replicas: 2
+  replicas: 1
 
 metadata-cache:
   enabled: true
 
 results-cache:
   enabled: true
-  replicas: 2
+  replicas: 1
 
 minio:
   enabled: false
@@ -153,34 +152,34 @@ store_gateway:
   persistentVolume:
     size: 10Gi
     storageClass: "openebs-hostpath"
-  replicas: 2
+  replicas: 1
   resources:
     limits:
       memory: 2.1Gi
     requests:
       cpu: 1
       memory: 1.5Gi
-  topologySpreadConstraints: {}
-  affinity:
-    podAntiAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        - labelSelector:
-            matchExpressions:
-              - key: target # support for enterprise.legacyLabels
-                operator: In
-                values:
-                  - store-gateway
-          topologyKey: 'kubernetes.io/hostname'
-
-        - labelSelector:
-            matchExpressions:
-              - key: app.kubernetes.io/component
-                operator: In
-                values:
-                  - store-gateway
-          topologyKey: 'kubernetes.io/hostname'
-  zoneAwareReplication:
-    topologyKey: 'kubernetes.io/hostname'
+  # topologySpreadConstraints: {}
+  # affinity:
+  #   podAntiAffinity:
+  #     requiredDuringSchedulingIgnoredDuringExecution:
+  #       - labelSelector:
+  #           matchExpressions:
+  #             - key: target # support for enterprise.legacyLabels
+  #               operator: In
+  #               values:
+  #                 - store-gateway
+  #         topologyKey: 'kubernetes.io/hostname'
+  #
+  #       - labelSelector:
+  #           matchExpressions:
+  #             - key: app.kubernetes.io/component
+  #               operator: In
+  #               values:
+  #                 - store-gateway
+  #         topologyKey: 'kubernetes.io/hostname'
+  # zoneAwareReplication:
+  #   topologyKey: 'kubernetes.io/hostname'
 
 nginx:
   replicas: 1
