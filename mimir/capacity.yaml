@@ -32,7 +32,7 @@ alertmanager:
     limits:
       memory: 1.4Gi
     requests:
-      cpu: 1
+      cpu: 125m
       memory: 1Gi
   statefulSet:
     enabled: true
@@ -45,7 +45,7 @@ compactor:
     limits:
       memory: 2.1Gi
     requests:
-      cpu: 1
+      cpu: 250m
       memory: 1.5Gi
 
 distributor:
@@ -54,7 +54,7 @@ distributor:
     limits:
       memory: 5.7Gi
     requests:
-      cpu: 2
+      cpu: 250m
       memory: 4Gi
 
 ingester:
@@ -66,7 +66,7 @@ ingester:
     limits:
       memory: 12Gi
     requests:
-      cpu: 3.5
+      cpu: 750m
       memory: 8Gi
   # topologySpreadConstraints: {}
   # affinity:
@@ -119,7 +119,7 @@ overrides_exporter:
     limits:
       memory: 128Mi
     requests:
-      cpu: 100m
+      cpu: 50m
       memory: 128Mi
 
 querier:
@@ -128,7 +128,7 @@ querier:
     limits:
       memory: 5.6Gi
     requests:
-      cpu: 2
+      cpu: 250m
       memory: 4Gi
 
 query_frontend:
@@ -137,7 +137,7 @@ query_frontend:
     limits:
       memory: 2.8Gi
     requests:
-      cpu: 2
+      cpu: 250m
       memory: 2Gi
 
 ruler:
@@ -146,7 +146,7 @@ ruler:
     limits:
       memory: 2.8Gi
     requests:
-      cpu: 1
+      cpu: 125m
       memory: 2Gi
 
 store_gateway:
@@ -158,7 +158,7 @@ store_gateway:
     limits:
       memory: 2.1Gi
     requests:
-      cpu: 1
+      cpu: 250m
       memory: 1.5Gi
   # topologySpreadConstraints: {}
   # affinity:
