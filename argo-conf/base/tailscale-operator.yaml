@@ -20,6 +20,9 @@ spec:
     targetRevision: 1.70.0
     helm:
       releaseName: tailscale-operator
+      valuesObject:
+        apiServerProxyConfig:
+          mode: "true"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: tailscale
