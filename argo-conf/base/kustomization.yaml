@@ -21,4 +21,6 @@ resources:
 - registry.yaml # postpone for first apply in order to regenerate sealed-secret
 - sealed-secret.yaml
 - sealed-secret-crd.yaml
+- tailscale-operator.yaml
+- tailscale-preinstall.yaml
 - tempo.yaml # postpone for first apply in order to regenerate sealed-secret
