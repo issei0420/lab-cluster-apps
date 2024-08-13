@@ -2,12 +2,9 @@
 
 ### Generate secrets
 ```sh
-# generate secrets from files for mimir
-k create secret generic operator-oauth \
-  --namespace tailscale \
-  --from-file=clientId=secrets/client_id \
-  --from-file=clientSecret=secrets/client_secret \
-  --dry-run=client -o yaml > secrets/raw-operator-oauth.yaml
+# MANUALLY create secret with following stringData in `tailscale` namespace and name it raw-operator-oauth.yaml
+# client_id: <client id in secrets/client_id>
+# client_secret: <client id in secrets/client_secret>
 
 # seal the secrets
 kubeseal -o yaml < secrets/raw-operator-oauth.yaml > operator-oauth.yaml
